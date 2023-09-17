@@ -22,4 +22,10 @@ public class ReversePolishNotationTest {
         ReversePolishNotation n = new ReversePolishNotation();
         Assert.assertEquals("", "6.0", n.calculate(input));
     }
+    @Test
+    public void testThreeNumbersWithAddAndMultiplyInDifferentOrder() {
+        ArrayList<String> input = new ArrayList<>(Arrays.asList("1", "1", "+", "5", "*"));
+        ReversePolishNotation n = new ReversePolishNotation();
+        Assert.assertEquals("", "10.0", n.calculate(input));
+    }
 }
