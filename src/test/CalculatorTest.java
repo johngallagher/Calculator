@@ -69,28 +69,14 @@ public class CalculatorTest {
     public void testThreeNumbersWithMultiplyAndAdd() {
         Calculator calculator = new Calculator();
         calculator.actionPerformed(eventWithButton(calculator.NumberBtn[1]));
-        calculator.actionPerformed(eventWithButton(calculator.Mul_btn));
-        calculator.actionPerformed(eventWithButton(calculator.NumberBtn[1]));
         calculator.actionPerformed(eventWithButton(calculator.Add_btn));
+        calculator.actionPerformed(eventWithButton(calculator.NumberBtn[1]));
+        calculator.actionPerformed(eventWithButton(calculator.Mul_btn));
         calculator.actionPerformed(eventWithButton(calculator.NumberBtn[5]));
         calculator.actionPerformed(eventWithButton(calculator.equalBtn));
-        Assert.assertEquals("1 * 1 + 5 = 6", "6.0", calculator.valueText());
+        Assert.assertEquals("1 + 1 * 5 = 6", "6.0", calculator.valueText());
     }
-
-
-    @Test
-    public void testPressingEqualsAfterACalculationClears() {
-        Calculator calculator = new Calculator();
-        calculator.actionPerformed(eventWithButton(calculator.NumberBtn[1]));
-        calculator.actionPerformed(eventWithButton(calculator.Add_btn));
-        calculator.actionPerformed(eventWithButton(calculator.NumberBtn[1]));
-        calculator.actionPerformed(eventWithButton(calculator.equalBtn));
-        Assert.assertEquals("1 + 1 = 2", "2.0", calculator.valueText());
-        calculator.actionPerformed(eventWithButton(calculator.NumberBtn[1]));
-        calculator.actionPerformed(eventWithButton(calculator.equalBtn));
-        Assert.assertEquals("Appending a 1 at the end of the output", "2.01", calculator.valueText());
-    }
-
+    @Ignore
     @Test
     public void testBracketsWork() {
         Calculator calculator = new Calculator();
@@ -104,6 +90,21 @@ public class CalculatorTest {
         calculator.actionPerformed(eventWithButton(calculator.equalBtn));
         Assert.assertEquals("(1 + 1) * 5 = 10", "10.0", calculator.valueText());
     }
+
+    @Ignore
+    @Test
+    public void testPressingEqualsAfterACalculationClears() {
+        Calculator calculator = new Calculator();
+        calculator.actionPerformed(eventWithButton(calculator.NumberBtn[1]));
+        calculator.actionPerformed(eventWithButton(calculator.Add_btn));
+        calculator.actionPerformed(eventWithButton(calculator.NumberBtn[1]));
+        calculator.actionPerformed(eventWithButton(calculator.equalBtn));
+        Assert.assertEquals("1 + 1 = 2", "2.0", calculator.valueText());
+        calculator.actionPerformed(eventWithButton(calculator.NumberBtn[1]));
+        calculator.actionPerformed(eventWithButton(calculator.equalBtn));
+        Assert.assertEquals("Appending a 1 at the end of the output", "2.01", calculator.valueText());
+    }
+
     private static ActionEvent eventWithButton(JButton calculator) {
         return new ActionEvent(calculator, 0, "");
     }

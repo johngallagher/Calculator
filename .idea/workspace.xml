@@ -4,10 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ffdb8472-d941-4ceb-b292-7309d4053c75" name="Changes" comment="refactor: better name">
+    <list default="true" id="ffdb8472-d941-4ceb-b292-7309d4053c75" name="Changes" comment="refactor: name by implementation">
+      <change afterPath="$PROJECT_DIR$/src/main/IExpression.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/ImmediateEvaluationExpression.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/ImmediateEvaluationExpressionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Calculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Calculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Expression.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ReversePolishNotationExpression.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/ExpressionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/ReversePolishNotationExpressionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/ReversePolishNotationExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ReversePolishNotationExpression.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/CalculatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/CalculatorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/ReversePolishNotationExpressionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/ReversePolishNotationExpressionTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,7 +22,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit4 Test Class" />
       </list>
     </option>
   </component>
@@ -41,6 +48,9 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
+    "create.test.in.the.same.root": "true",
     "git-widget-placeholder": "main",
     "onboarding.tips.debug.path": "/Users/johngallagher/Documents/Projects/Calculator/src/Main.java"
   }
@@ -49,43 +59,20 @@
     <key name="CreateClassDialog.RecentsKey">
       <recent name="main" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="main" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="test" />
+    </key>
   </component>
   <component name="RunManager" selected="JUnit.Tests">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main.Main" />
       <module name="Calculator" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CalculatorTest.testAddThreeAndTwo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Calculator" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="test" />
-      <option name="MAIN_CLASS_NAME" value="test.CalculatorTest" />
-      <option name="METHOD_NAME" value="testAddThreeAndTwo" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CalculatorTest.testBracketsWork" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Calculator" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="test" />
-      <option name="MAIN_CLASS_NAME" value="test.CalculatorTest" />
-      <option name="METHOD_NAME" value="testBracketsWork" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -122,6 +109,37 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ImmediateEvaluationExpressionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Calculator" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test" />
+      <option name="MAIN_CLASS_NAME" value="test.ImmediateEvaluationExpressionTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ImmediateEvaluationExpressionTest.testThreeNumbersWithAddAndMultiply" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Calculator" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test" />
+      <option name="MAIN_CLASS_NAME" value="test.ImmediateEvaluationExpressionTest" />
+      <option name="METHOD_NAME" value="testThreeNumbersWithAddAndMultiply" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Tests" type="JUnit" factoryName="JUnit">
       <module name="Calculator" />
       <option name="PACKAGE_NAME" value="test" />
@@ -135,18 +153,18 @@
     <list>
       <item itemvalue="Application.Main" />
       <item itemvalue="JUnit.Tests" />
-      <item itemvalue="JUnit.CalculatorTest.testAddThreeAndTwo" />
-      <item itemvalue="JUnit.CalculatorTest.testBracketsWork" />
       <item itemvalue="JUnit.CalculatorTest.testPressingEqualsAfterACalculationClears" />
       <item itemvalue="JUnit.CalculatorTest.testThreeNumbersWithMultiplyAndAdd" />
+      <item itemvalue="JUnit.ImmediateEvaluationExpressionTest" />
+      <item itemvalue="JUnit.ImmediateEvaluationExpressionTest.testThreeNumbersWithAddAndMultiply" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CalculatorTest.testThreeNumbersWithMultiplyAndAdd" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.CalculatorTest.testPressingEqualsAfterACalculationClears" />
-        <item itemvalue="JUnit.CalculatorTest.testThreeNumbersWithMultiplyAndAdd" />
-        <item itemvalue="JUnit.CalculatorTest.testBracketsWork" />
-        <item itemvalue="JUnit.CalculatorTest.testAddThreeAndTwo" />
+        <item itemvalue="JUnit.ImmediateEvaluationExpressionTest.testThreeNumbersWithAddAndMultiply" />
+        <item itemvalue="JUnit.ImmediateEvaluationExpressionTest" />
       </list>
     </recent_temporary>
   </component>
@@ -194,8 +212,26 @@
       <option name="project" value="LOCAL" />
       <updated>1694976187637</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="refactor: name by implementation">
+      <created>1694976470040</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1694976470040</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fix: use correct algorithm broken out" />
@@ -203,7 +239,8 @@
     <MESSAGE value="refactor: prepare for moving into separate class" />
     <MESSAGE value="refactor: calculation is decoupled from UI" />
     <MESSAGE value="refactor: better name" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: better name" />
+    <MESSAGE value="refactor: name by implementation" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: name by implementation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -215,7 +252,7 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/test/ReversePolishNotationExpressionTest.java</url>
           <line>33</line>
-          <properties class="test.ReversePolishNotationExpressionTest" method="testWithBrackets">
+          <properties class="test.ReversePolishNotationExpressionTest">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
@@ -226,11 +263,17 @@
           <line>152</line>
           <option name="timeStamp" value="15" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/ReversePolishNotationExpressionTest.java</url>
+          <line>7</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
       <configuration name="JUnit">
-        <watch expression="((Calculator)this).shuntingYard" custom="main.Calculator" />
+        <watch expression="((ImmediateEvaluationExpression)this).result" custom="main.ImmediateEvaluationExpression" />
+        <watch expression="((ImmediateEvaluationExpression)this).operand" custom="main.ImmediateEvaluationExpression" />
       </configuration>
     </watches-manager>
   </component>

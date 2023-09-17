@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Stack;
 import java.lang.Character;
 
-public class ReversePolishNotationExpression {
+public class ReversePolishNotationExpression implements IExpression {
 
     private ArrayList<String> output;
     private Stack<String> stack;
@@ -48,6 +48,7 @@ public class ReversePolishNotationExpression {
 
     // Method converts given infixto postfix expression
     // to illustrate shunting yard algorithm
+    @Override
     public ArrayList<String> ToPostfix() {
         // pop all the remaining operators from
         // the stack and append them to output
@@ -60,7 +61,7 @@ public class ReversePolishNotationExpression {
     }
 
 
-    public boolean LastCharacterIsClosedBracket() {
+    private boolean LastCharacterIsClosedBracket() {
         if (output.isEmpty())
             return false;
 
@@ -70,6 +71,7 @@ public class ReversePolishNotationExpression {
             return false;
     }
 
+    @Override
     public void Type(String s) {
         if (letterOrDigit(s))
             output.add(s);
@@ -100,12 +102,13 @@ public class ReversePolishNotationExpression {
         }
     }
 
+    @Override
     public void Reset() {
         output.clear();
         stack.clear();
     }
 
-    public boolean LastCharacterIsOperand() {
+    private boolean LastCharacterIsOperand() {
         if (output.isEmpty())
             return false;
 
@@ -124,7 +127,8 @@ public class ReversePolishNotationExpression {
         return !LastCharacterIsClosedBracket() && !LastCharacterIsOperand();
     }
 
-    void TypeOperand(String operand, String value) {
+    @Override
+    public void TypeOperand(String operand, String value) {
         if (LastCharacterWasNumber()) {
             Type(value);
         }
@@ -132,15 +136,18 @@ public class ReversePolishNotationExpression {
         Type(operand);
     }
 
+    @Override
     public void TypeOpeningBracket() {
         Type("(");
     }
 
+    @Override
     public void TypeClosingBracket(String s) {
         Type(s);
         Type(")");
     }
 
+    @Override
     public String Evaluate() {
         ArrayList<String> calculationInPolishNotation = ToPostfix();
         ReversePolishNotation reversePolishIndependent = new ReversePolishNotation();
@@ -149,6 +156,7 @@ public class ReversePolishNotationExpression {
         return calculationResult;
     }
 
+    @Override
     public void TypeEquals(String value) {
         if (IsNumber(value)) {
             Type(value);
