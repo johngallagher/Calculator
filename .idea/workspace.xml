@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ffdb8472-d941-4ceb-b292-7309d4053c75" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/ReversePolishNotation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/ReversePolishNotationTest.java" afterDir="false" />
+    <list default="true" id="ffdb8472-d941-4ceb-b292-7309d4053c75" name="Changes" comment="fix: use correct algorithm broken out">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Calculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Calculator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/ShuntingYard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ShuntingYard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/CalculatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/CalculatorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/ReversePolishNotationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/ReversePolishNotationTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/ShuntingYardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/ShuntingYardTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -62,7 +61,39 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ShuntingYardTest.test1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CalculatorTest.testBracketsWork" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Calculator" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test" />
+      <option name="MAIN_CLASS_NAME" value="test.CalculatorTest" />
+      <option name="METHOD_NAME" value="testBracketsWork" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ReversePolishNotationTest.testThreeNumbersWithAddAndMultiplyInDifferentOrder" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Calculator" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test" />
+      <option name="MAIN_CLASS_NAME" value="test.ReversePolishNotationTest" />
+      <option name="METHOD_NAME" value="testThreeNumbersWithAddAndMultiplyInDifferentOrder" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ShuntingYardTest.testThreeNumbersWithAddAndMultiply" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Calculator" />
       <extension name="coverage">
         <pattern>
@@ -72,7 +103,23 @@
       </extension>
       <option name="PACKAGE_NAME" value="test" />
       <option name="MAIN_CLASS_NAME" value="test.ShuntingYardTest" />
-      <option name="METHOD_NAME" value="test1" />
+      <option name="METHOD_NAME" value="testThreeNumbersWithAddAndMultiply" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ShuntingYardTest.testWithBrackets" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Calculator" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test" />
+      <option name="MAIN_CLASS_NAME" value="test.ShuntingYardTest" />
+      <option name="METHOD_NAME" value="testWithBrackets" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -91,12 +138,18 @@
     <list>
       <item itemvalue="Application.Main" />
       <item itemvalue="JUnit.Tests" />
-      <item itemvalue="JUnit.ShuntingYardTest.test1" />
+      <item itemvalue="JUnit.CalculatorTest.testBracketsWork" />
+      <item itemvalue="JUnit.ReversePolishNotationTest.testThreeNumbersWithAddAndMultiplyInDifferentOrder" />
+      <item itemvalue="JUnit.ShuntingYardTest.testThreeNumbersWithAddAndMultiply" />
+      <item itemvalue="JUnit.ShuntingYardTest.testWithBrackets" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.ShuntingYardTest.test1" />
+        <item itemvalue="JUnit.ReversePolishNotationTest.testThreeNumbersWithAddAndMultiplyInDifferentOrder" />
+        <item itemvalue="JUnit.ShuntingYardTest.testWithBrackets" />
+        <item itemvalue="JUnit.ShuntingYardTest.testThreeNumbersWithAddAndMultiply" />
+        <item itemvalue="JUnit.CalculatorTest.testBracketsWork" />
       </list>
     </recent_temporary>
   </component>
@@ -109,7 +162,19 @@
       <option name="presentableId" value="Default" />
       <updated>1694957526688</updated>
     </task>
+    <task id="LOCAL-00001" summary="fix: use correct algorithm broken out">
+      <created>1694963624193</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1694963624193</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="fix: use correct algorithm broken out" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: use correct algorithm broken out" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -118,6 +183,15 @@
           <properties class="java.util.EmptyStackException" package="java.util" />
           <option name="timeStamp" value="2" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/test/ShuntingYardTest.java</url>
+          <line>33</line>
+          <properties class="test.ShuntingYardTest" method="testWithBrackets">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

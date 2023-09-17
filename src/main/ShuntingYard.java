@@ -79,19 +79,12 @@ public class ShuntingYard {
             stack.pop();
         }
 
-        // If an operator is encountered then taken the
-        // further action based on the precedence of the
-        // operator
-
         else {
             while (
                     !stack.isEmpty()
                             && getPrecedence(s)
                             <= getPrecedence(stack.peek())
                             && hasLeftAssociativity(s)) {
-                // peek() inbuilt stack function to
-                // fetch the top element(token)
-
                 output.add(stack.pop());
             }
             stack.push(s);
