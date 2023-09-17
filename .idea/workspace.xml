@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ffdb8472-d941-4ceb-b292-7309d4053c75" name="Changes" comment="fix: use correct algorithm broken out">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="ffdb8472-d941-4ceb-b292-7309d4053c75" name="Changes" comment="refactor: encapsulate into ShuntingYard">
       <change beforePath="$PROJECT_DIR$/src/main/Calculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Calculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/ShuntingYard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ShuntingYard.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,12 +164,20 @@
       <option name="project" value="LOCAL" />
       <updated>1694963624193</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="refactor: encapsulate into ShuntingYard">
+      <created>1694973956274</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1694973956274</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fix: use correct algorithm broken out" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: use correct algorithm broken out" />
+    <MESSAGE value="refactor: encapsulate into ShuntingYard" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: encapsulate into ShuntingYard" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

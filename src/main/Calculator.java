@@ -4,7 +4,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.Stack;
 
 import javax.swing.JFrame;
 import javax.swing.JButton;
@@ -19,12 +18,10 @@ public class Calculator extends JFrame implements ActionListener {
     private JPanel panel;
     private JTextField text;
 
-    private Stack<Double> numbers;
-    private Stack<Character> operators;
-    private double number, result = 0, current, temp = 0;
+    private double number;
+    private double result = 0;
     private char operator = ' ';
     private int x = 0;
-    private String del = "", str = "";
     private ShuntingYard shuntingYard;
     private ReversePolishNotation reversePolish;
 
@@ -51,8 +48,6 @@ public class Calculator extends JFrame implements ActionListener {
         panel.setSize(new Dimension(250, 250));
         panel.setLocation(new Point(20, 70));
 
-        numbers = new Stack<Double>();
-        operators = new Stack<Character>();
         Add_btn = new JButton("+");
         Sub_btn = new JButton("-");
         Mul_btn = new JButton("*");
@@ -137,30 +132,6 @@ public class Calculator extends JFrame implements ActionListener {
         reversePolish = new ReversePolishNotation();
     }
 
-    private void operation(char opt, double curr) {
-        switch (operator) {
-            case '+':
-                result = number + curr;
-                break;
-
-            case '-':
-                result = number - curr;
-                break;
-
-            case '*':
-                result = number * curr;
-                break;
-
-            case '/':
-                result = number / curr;
-                break;
-        }
-
-        text.setText(String.valueOf(result));
-        temp = result;
-        x = 0;
-    }
-
     public String valueText() {
         return text.getText();
     }
@@ -176,7 +147,6 @@ public class Calculator extends JFrame implements ActionListener {
             }
         }
 
-        // Duplication is an instance of things NOT being coupled together that SHOULD be coupled together
         if (e.getSource() == functionBtn[1]) {//substration
             if (!text.getText().isEmpty()) {
                 shuntingYard.TypeOperand("-", text.getText());
@@ -200,10 +170,7 @@ public class Calculator extends JFrame implements ActionListener {
 
         if (e.getSource() == functionBtn[4]) {// equals operation
             if (!text.getText().isEmpty()) {
-                shuntingYard.Type(String.valueOf(Double.valueOf(text.getText())));
-                String calculationResult = calculateResult();
-                text.setText(calculationResult);
-                shuntingYard.reset();
+                text.setText(calculate());
                 x = 3;
             }
         }
@@ -215,7 +182,6 @@ public class Calculator extends JFrame implements ActionListener {
         if (e.getSource() == functionBtn[6]) {// clear function
             result = 0;
             x = 0;
-            temp = 0;
             number = 0;
             operator = ' ';
             text.setText("");
@@ -261,8 +227,12 @@ public class Calculator extends JFrame implements ActionListener {
         }
     }
 
-    private String calculateResult() {
+    private String calculate() {
+        shuntingYard.Type(text.getText());
         ArrayList<String> calculationInPolishNotation = shuntingYard.output();
-        return reversePolish.calculate(calculationInPolishNotation);
+        String calculationResult = reversePolish.calculate(calculationInPolishNotation);
+        shuntingYard.reset();
+        return calculationResult;
     }
+
 }
