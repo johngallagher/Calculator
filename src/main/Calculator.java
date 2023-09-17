@@ -315,6 +315,7 @@ public class Calculator extends JFrame implements ActionListener {
             number = 0;
             operator = ' ';
             text.setText("");
+            shuntingYard.reset();
         }
 
         if (e.getSource() == functionBtn[7]) { // decimal function
