@@ -59,6 +59,17 @@ public class ShuntingYard {
         return output;
     }
 
+
+    public boolean LastCharacterIsClosedBracket() {
+        if (output.isEmpty())
+            return false;
+
+        if (output.get(output.size() - 1) == ")")
+            return true;
+        else
+            return false;
+    }
+
     public void Type(String s) {
         if (letterOrDigit(s))
             output.add(s);
@@ -77,9 +88,7 @@ public class ShuntingYard {
                 output.add(stack.pop());
 
             stack.pop();
-        }
-
-        else {
+        } else {
             while (
                     !stack.isEmpty()
                             && getPrecedence(s)
@@ -94,6 +103,38 @@ public class ShuntingYard {
     public void reset() {
         output.clear();
         stack.clear();
+    }
+
+    public boolean LastCharacterIsOperand() {
+        if (output.isEmpty())
+            return false;
+
+        return IsOperand(output.get(output.size() - 1));
+    }
+
+    private boolean IsOperand(String s) {
+        return s == "+" || s == "-" || s == "*" || s == "/" || s == "^";
+    }
+
+    private boolean LastCharacterWasNumber() {
+        return !LastCharacterIsClosedBracket() && !LastCharacterIsOperand();
+    }
+
+    void TypeOperand(String operand, String value) {
+        if (LastCharacterWasNumber()) {
+            Type(value);
+        }
+
+        Type(operand);
+    }
+
+    public void TypeClosingBracket(String s) {
+        Type(s);
+        Type(")");
+    }
+
+    public void TypeOpeningBracket() {
+        Type("(");
     }
 }
 

@@ -1,15 +1,11 @@
 package main;
 
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Stack;
 
-import java.awt.*;
-import java.awt.event.*;
-import java.util.Stack;
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JTextField;
@@ -175,131 +171,39 @@ public class Calculator extends JFrame implements ActionListener {
 
         if (e.getSource() == functionBtn[0]) {//addition
             if (!text.getText().isEmpty()) {
-                current = Double.valueOf(text.getText());
-                if (operator != ' ' && operator != '+') {
-                    operation(operator, current);
-                    operator = ' ';
-                }
-
-                current = Double.valueOf(text.getText());
-
-                if (x == 0) {
-                    temp = current;
-                    number = temp;
-                    operator = '+';
-                    x = 1;
-                } else {
-                    number = temp;
-                    result = number + current;
-                    text.setText(String.valueOf(result));
-                    temp = result;
-                    x = 1;
-                }
-                numbers.add(current);
-                operators.add('+');
-                shuntingYard.Type(String.valueOf(current));
-                shuntingYard.Type("+");
+                shuntingYard.TypeOperand("+", text.getText());
+                x = 1;
             }
         }
 
         // Duplication is an instance of things NOT being coupled together that SHOULD be coupled together
         if (e.getSource() == functionBtn[1]) {//substration
             if (!text.getText().isEmpty()) {
-                current = Double.valueOf(text.getText());
-                if (operator != ' ' && operator != '-') {
-                    operation(operator, current);
-                    operator = ' ';
-                }
-
-                current = Double.valueOf(text.getText());
-
-                if (x == 0) {
-                    temp = current;
-                    number = temp;
-                    operator = '-';
-                    x = 1;
-
-                } else {
-                    number = temp;
-                    result = number - current;
-                    text.setText(String.valueOf(result));
-                    temp = result;
-                    x = 1;
-                }
-                numbers.add(current);
-                operators.add('-');
-                shuntingYard.Type(String.valueOf(current));
-                shuntingYard.Type("-");
+                shuntingYard.TypeOperand("-", text.getText());
+                x = 1;
             }
         }
 
         if (e.getSource() == functionBtn[2]) {//multiplication
             if (!text.getText().isEmpty()) {
-                current = Double.valueOf(text.getText());
-                if (operator != ' ' && operator != '*') {
-                    operation(operator, current);
-                    operator = ' ';
-                }
-
-                current = Double.valueOf(text.getText());
-
-                if (x == 0) {
-                    temp = current;
-                    number = temp;
-                    operator = '*';
-                    x = 1;
-                } else {
-                    number = temp;
-                    result = number * current;
-                    text.setText(String.valueOf(result));
-                    temp = result;
-                    x = 1;
-                }
-                numbers.add(current);
-                operators.add('*');
-                shuntingYard.Type(String.valueOf(current));
-                shuntingYard.Type("*");
+                shuntingYard.TypeOperand("*", text.getText());
+                x = 1;
             }
         }
 
         if (e.getSource() == functionBtn[3]) {//division
             if (!text.getText().isEmpty()) {
-                current = Double.valueOf(text.getText());
-                if (operator != ' ' && operator != '/') {
-                    operation(operator, current);
-                    operator = ' ';
-                }
-
-                current = Double.valueOf(text.getText());
-
-                if (x == 0) {
-                    temp = current;
-                    number = temp;
-                    operator = '/';
-                    x = 1;
-                } else {
-                    number = temp;
-                    result = number / current;
-                    text.setText(String.valueOf(result));
-                    temp = result;
-                    x = 1;
-                }
-                numbers.add(current);
-                operators.add('/');
-                shuntingYard.Type(String.valueOf(current));
-                shuntingYard.Type("/");
+                shuntingYard.TypeOperand("/", text.getText());
+                x = 1;
             }
         }
 
         if (e.getSource() == functionBtn[4]) {// equals operation
             if (!text.getText().isEmpty()) {
-                current = Double.valueOf(text.getText());
-                numbers.add(current);
-                shuntingYard.Type(String.valueOf(current));
+                shuntingYard.Type(String.valueOf(Double.valueOf(text.getText())));
                 String calculationResult = calculateResult();
                 text.setText(calculationResult);
                 shuntingYard.reset();
-                operator = ' ';
                 x = 3;
             }
         }
@@ -336,13 +240,11 @@ public class Calculator extends JFrame implements ActionListener {
 
         }
         if (e.getSource() == functionBtn[8]) { // (
-            shuntingYard.Type("(");
+            shuntingYard.TypeOpeningBracket();
         }
         if (e.getSource() == functionBtn[9]) { // (
             if (!text.getText().isEmpty()) {
-                current = Double.valueOf(text.getText());
-                shuntingYard.Type(String.valueOf(current));
-                shuntingYard.Type(")");
+                shuntingYard.TypeClosingBracket(String.valueOf(Double.valueOf(text.getText())));
             }
         }
 

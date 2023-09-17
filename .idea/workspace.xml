@@ -8,9 +8,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Calculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Calculator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/ShuntingYard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ShuntingYard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/CalculatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/CalculatorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/ReversePolishNotationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/ReversePolishNotationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/ShuntingYardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/ShuntingYardTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,10 +50,26 @@
       <recent name="main" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.Tests">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main.Main" />
       <module name="Calculator" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CalculatorTest.testAddThreeAndTwo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Calculator" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test" />
+      <option name="MAIN_CLASS_NAME" value="test.CalculatorTest" />
+      <option name="METHOD_NAME" value="testAddThreeAndTwo" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -93,22 +106,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ShuntingYardTest.testThreeNumbersWithAddAndMultiply" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Calculator" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="test" />
-      <option name="MAIN_CLASS_NAME" value="test.ShuntingYardTest" />
-      <option name="METHOD_NAME" value="testThreeNumbersWithAddAndMultiply" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="ShuntingYardTest.testWithBrackets" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Calculator" />
       <extension name="coverage">
@@ -138,18 +135,18 @@
     <list>
       <item itemvalue="Application.Main" />
       <item itemvalue="JUnit.Tests" />
+      <item itemvalue="JUnit.CalculatorTest.testAddThreeAndTwo" />
       <item itemvalue="JUnit.CalculatorTest.testBracketsWork" />
       <item itemvalue="JUnit.ReversePolishNotationTest.testThreeNumbersWithAddAndMultiplyInDifferentOrder" />
-      <item itemvalue="JUnit.ShuntingYardTest.testThreeNumbersWithAddAndMultiply" />
       <item itemvalue="JUnit.ShuntingYardTest.testWithBrackets" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.CalculatorTest.testBracketsWork" />
+        <item itemvalue="JUnit.CalculatorTest.testAddThreeAndTwo" />
         <item itemvalue="JUnit.ReversePolishNotationTest.testThreeNumbersWithAddAndMultiplyInDifferentOrder" />
         <item itemvalue="JUnit.ShuntingYardTest.testWithBrackets" />
-        <item itemvalue="JUnit.ShuntingYardTest.testThreeNumbersWithAddAndMultiply" />
-        <item itemvalue="JUnit.CalculatorTest.testBracketsWork" />
       </list>
     </recent_temporary>
   </component>
@@ -194,5 +191,10 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="JUnit">
+        <watch expression="((Calculator)this).shuntingYard" custom="main.Calculator" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
