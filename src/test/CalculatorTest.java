@@ -53,7 +53,6 @@ public class CalculatorTest {
         Assert.assertEquals("Failed to divide 3 by 2", "1.5", calculator.valueText());
     }
 
-    @Ignore
     @Test
     public void testThreeNumbersSameOperator() {
         Calculator calculator = new Calculator();
@@ -66,6 +65,31 @@ public class CalculatorTest {
         Assert.assertEquals("Failed to add 1, 1 and 5", "7.0", calculator.valueText());
     }
 
+    @Test
+    public void testThreeNumbersWithMultiplyAndAdd() {
+        Calculator calculator = new Calculator();
+        calculator.actionPerformed(eventWithButton(calculator.NumberBtn[1]));
+        calculator.actionPerformed(eventWithButton(calculator.Mul_btn));
+        calculator.actionPerformed(eventWithButton(calculator.NumberBtn[1]));
+        calculator.actionPerformed(eventWithButton(calculator.Add_btn));
+        calculator.actionPerformed(eventWithButton(calculator.NumberBtn[5]));
+        calculator.actionPerformed(eventWithButton(calculator.equalBtn));
+        Assert.assertEquals("1 * 1 + 5 = 6", "6.0", calculator.valueText());
+    }
+
+
+    @Test
+    public void testPressingEqualsAfterACalculationClears() {
+        Calculator calculator = new Calculator();
+        calculator.actionPerformed(eventWithButton(calculator.NumberBtn[1]));
+        calculator.actionPerformed(eventWithButton(calculator.Add_btn));
+        calculator.actionPerformed(eventWithButton(calculator.NumberBtn[1]));
+        calculator.actionPerformed(eventWithButton(calculator.equalBtn));
+        Assert.assertEquals("1 + 1 = 2", "2.0", calculator.valueText());
+        calculator.actionPerformed(eventWithButton(calculator.NumberBtn[1]));
+        calculator.actionPerformed(eventWithButton(calculator.equalBtn));
+        Assert.assertEquals("1 = 1", "1.0", calculator.valueText());
+    }
     private static ActionEvent eventWithButton(JButton calculator) {
         return new ActionEvent(calculator, 0, "");
     }

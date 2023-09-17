@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.Stack;
 
 import java.awt.*;
@@ -28,6 +29,8 @@ public class Calculator extends JFrame implements ActionListener {
     private char operator = ' ';
     private int x = 0;
     private String del = "", str = "";
+    private ShuntingYard shuntingYard;
+    private ReversePolishNotation reversePolish;
 
     public Calculator() {
         initialize();
@@ -48,7 +51,7 @@ public class Calculator extends JFrame implements ActionListener {
         text.setHorizontalAlignment(JTextField.RIGHT);
 
         panel = new JPanel();
-        panel.setLayout(new GridLayout(4, 4));
+        panel.setLayout(new GridLayout(5, 4));
         panel.setSize(new Dimension(250, 250));
         panel.setLocation(new Point(20, 70));
 
@@ -64,10 +67,10 @@ public class Calculator extends JFrame implements ActionListener {
         rightBracketBtn = new JButton(")");
 
         clearBtn = new JButton("CE");
-        clearBtn.setLocation(new Point(20, 330));
+        clearBtn.setLocation(new Point(20, 300));
 
         delBtn = new JButton("CLR");
-        delBtn.setLocation(new Point(170, 330));
+        delBtn.setLocation(new Point(170, 300));
 
         functionBtn = new JButton[8];
 
@@ -123,10 +126,15 @@ public class Calculator extends JFrame implements ActionListener {
         panel.add(functionBtn[4]);
         panel.add(functionBtn[3]);
 
+        this.add(functionBtn[6]);
+        this.add(functionBtn[5]);
         this.add(text);
         this.add(panel);
         this.setVisible(true);
         this.setLocationRelativeTo(null);
+
+        shuntingYard = new ShuntingYard();
+        reversePolish = new ReversePolishNotation();
     }
 
     private void operation(char opt, double curr) {
@@ -185,6 +193,8 @@ public class Calculator extends JFrame implements ActionListener {
                 }
                 numbers.add(current);
                 operators.add('+');
+                shuntingYard.Type(String.valueOf(current));
+                shuntingYard.Type("+");
             }
         }
 
@@ -214,6 +224,8 @@ public class Calculator extends JFrame implements ActionListener {
                 }
                 numbers.add(current);
                 operators.add('-');
+                shuntingYard.Type(String.valueOf(current));
+                shuntingYard.Type("-");
             }
         }
 
@@ -241,6 +253,8 @@ public class Calculator extends JFrame implements ActionListener {
                 }
                 numbers.add(current);
                 operators.add('*');
+                shuntingYard.Type(String.valueOf(current));
+                shuntingYard.Type("*");
             }
         }
 
@@ -268,6 +282,8 @@ public class Calculator extends JFrame implements ActionListener {
                 }
                 numbers.add(current);
                 operators.add('/');
+                shuntingYard.Type(String.valueOf(current));
+                shuntingYard.Type("/");
             }
         }
 
@@ -275,8 +291,10 @@ public class Calculator extends JFrame implements ActionListener {
             if (!text.getText().isEmpty()) {
                 current = Double.valueOf(text.getText());
                 numbers.add(current);
+                shuntingYard.Type(String.valueOf(current));
                 String calculationResult = calculateResult();
                 text.setText(calculationResult);
+                shuntingYard.reset();
                 operator = ' ';
                 x = 3;
             }
@@ -327,22 +345,7 @@ public class Calculator extends JFrame implements ActionListener {
     }
 
     private String calculateResult() {
-        Double second = numbers.pop();
-        Double first = numbers.pop();
-        Character firstOperator = operators.pop();
-        switch (firstOperator) {
-            case '+':
-                return Double.toString(first + second);
-
-            case '-':
-                return Double.toString(first - second);
-
-            case '*':
-                return Double.toString(first * second);
-
-            case '/':
-                return Double.toString(first / second);
-        }
-        return null;
+        ArrayList<String> calculationInPolishNotation = shuntingYard.output();
+        return reversePolish.calculate(calculationInPolishNotation);
     }
 }

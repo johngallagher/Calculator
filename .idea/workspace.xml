@@ -5,10 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ffdb8472-d941-4ceb-b292-7309d4053c75" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/ShuntingYard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/ShuntingYardTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/ReversePolishNotation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/ReversePolishNotationTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Calculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Calculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/ShuntingYard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ShuntingYard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/CalculatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/CalculatorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/ShuntingYardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/ShuntingYardTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +49,12 @@
     "onboarding.tips.debug.path": "/Users/johngallagher/Documents/Projects/Calculator/src/Main.java"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.Tests">
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="main" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main.Main" />
       <module name="Calculator" />
@@ -87,8 +95,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ShuntingYardTest.test1" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.ShuntingYardTest.test1" />
       </list>
     </recent_temporary>
   </component>
@@ -102,5 +110,15 @@
       <updated>1694957526688</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.util.EmptyStackException" package="java.util" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -98,5 +98,9 @@ public class ShuntingYard {
         }
     }
 
+    public void reset() {
+        output.clear();
+        stack.clear();
+    }
 }
 
