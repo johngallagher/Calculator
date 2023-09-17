@@ -3,7 +3,6 @@ package main;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JButton;
@@ -17,13 +16,8 @@ public class Calculator extends JFrame implements ActionListener {
     public JButton Add_btn, Sub_btn, Mul_btn, Div_btn, equalBtn, decBtn, openBracket_btn, closeBracket_btn;
     private JPanel panel;
     private JTextField text;
-
-    private double number;
-    private double result = 0;
-    private char operator = ' ';
     private int x = 0;
     private ShuntingYard shuntingYard;
-    private ReversePolishNotation reversePolish;
 
     public Calculator() {
         initialize();
@@ -129,7 +123,6 @@ public class Calculator extends JFrame implements ActionListener {
         this.setLocationRelativeTo(null);
 
         shuntingYard = new ShuntingYard();
-        reversePolish = new ReversePolishNotation();
     }
 
     public String valueText() {
@@ -170,8 +163,8 @@ public class Calculator extends JFrame implements ActionListener {
 
         if (e.getSource() == functionBtn[4]) {// equals operation
             if (!text.getText().isEmpty()) {
-                text.setText(calculate());
-                x = 3;
+                shuntingYard.TypeEquals(text.getText());
+                text.setText(shuntingYard.Evaluate());
             }
         }
 
@@ -180,16 +173,12 @@ public class Calculator extends JFrame implements ActionListener {
         }
 
         if (e.getSource() == functionBtn[6]) {// clear function
-            result = 0;
             x = 0;
-            number = 0;
-            operator = ' ';
             text.setText("");
             shuntingYard.reset();
         }
 
         if (e.getSource() == functionBtn[7]) { // decimal function
-
             if (x == 1) {
                 text.setText("");
 
@@ -210,7 +199,7 @@ public class Calculator extends JFrame implements ActionListener {
         }
         if (e.getSource() == functionBtn[9]) { // (
             if (!text.getText().isEmpty()) {
-                shuntingYard.TypeClosingBracket(String.valueOf(Double.valueOf(text.getText())));
+                shuntingYard.TypeClosingBracket(text.getText());
             }
         }
 
@@ -226,13 +215,4 @@ public class Calculator extends JFrame implements ActionListener {
             }
         }
     }
-
-    private String calculate() {
-        shuntingYard.Type(text.getText());
-        ArrayList<String> calculationInPolishNotation = shuntingYard.output();
-        String calculationResult = reversePolish.calculate(calculationInPolishNotation);
-        shuntingYard.reset();
-        return calculationResult;
-    }
-
 }

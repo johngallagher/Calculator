@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ffdb8472-d941-4ceb-b292-7309d4053c75" name="Changes" comment="refactor: encapsulate into ShuntingYard">
+    <list default="true" id="ffdb8472-d941-4ceb-b292-7309d4053c75" name="Changes" comment="refactor: prepare for moving into separate class">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Calculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Calculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/ShuntingYard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ShuntingYard.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +90,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ReversePolishNotationTest.testThreeNumbersWithAddAndMultiplyInDifferentOrder" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CalculatorTest.testPressingEqualsAfterACalculationClears" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Calculator" />
       <extension name="coverage">
         <pattern>
@@ -97,14 +99,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="test" />
-      <option name="MAIN_CLASS_NAME" value="test.ReversePolishNotationTest" />
-      <option name="METHOD_NAME" value="testThreeNumbersWithAddAndMultiplyInDifferentOrder" />
+      <option name="MAIN_CLASS_NAME" value="test.CalculatorTest" />
+      <option name="METHOD_NAME" value="testPressingEqualsAfterACalculationClears" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ShuntingYardTest.testWithBrackets" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CalculatorTest.testThreeNumbersWithMultiplyAndAdd" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Calculator" />
       <extension name="coverage">
         <pattern>
@@ -113,8 +115,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="test" />
-      <option name="MAIN_CLASS_NAME" value="test.ShuntingYardTest" />
-      <option name="METHOD_NAME" value="testWithBrackets" />
+      <option name="MAIN_CLASS_NAME" value="test.CalculatorTest" />
+      <option name="METHOD_NAME" value="testThreeNumbersWithMultiplyAndAdd" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -135,16 +137,16 @@
       <item itemvalue="JUnit.Tests" />
       <item itemvalue="JUnit.CalculatorTest.testAddThreeAndTwo" />
       <item itemvalue="JUnit.CalculatorTest.testBracketsWork" />
-      <item itemvalue="JUnit.ReversePolishNotationTest.testThreeNumbersWithAddAndMultiplyInDifferentOrder" />
-      <item itemvalue="JUnit.ShuntingYardTest.testWithBrackets" />
+      <item itemvalue="JUnit.CalculatorTest.testPressingEqualsAfterACalculationClears" />
+      <item itemvalue="JUnit.CalculatorTest.testThreeNumbersWithMultiplyAndAdd" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.CalculatorTest.testPressingEqualsAfterACalculationClears" />
+        <item itemvalue="JUnit.CalculatorTest.testThreeNumbersWithMultiplyAndAdd" />
         <item itemvalue="JUnit.CalculatorTest.testBracketsWork" />
         <item itemvalue="JUnit.CalculatorTest.testAddThreeAndTwo" />
-        <item itemvalue="JUnit.ReversePolishNotationTest.testThreeNumbersWithAddAndMultiplyInDifferentOrder" />
-        <item itemvalue="JUnit.ShuntingYardTest.testWithBrackets" />
       </list>
     </recent_temporary>
   </component>
@@ -171,13 +173,21 @@
       <option name="project" value="LOCAL" />
       <updated>1694973956274</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="refactor: prepare for moving into separate class">
+      <created>1694974317306</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1694974317306</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fix: use correct algorithm broken out" />
     <MESSAGE value="refactor: encapsulate into ShuntingYard" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: encapsulate into ShuntingYard" />
+    <MESSAGE value="refactor: prepare for moving into separate class" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: prepare for moving into separate class" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -194,6 +204,16 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/ShuntingYard.java</url>
+          <line>152</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/Calculator.java</url>
+          <line>172</line>
+          <option name="timeStamp" value="16" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

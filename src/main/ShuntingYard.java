@@ -116,6 +116,10 @@ public class ShuntingYard {
         return s == "+" || s == "-" || s == "*" || s == "/" || s == "^";
     }
 
+    private boolean IsNumber(String s) {
+        return s.matches("[0-9]+") || s.matches("[0-9]+\\.[0-9]+");
+    }
+
     private boolean LastCharacterWasNumber() {
         return !LastCharacterIsClosedBracket() && !LastCharacterIsOperand();
     }
@@ -128,13 +132,27 @@ public class ShuntingYard {
         Type(operand);
     }
 
+    public void TypeOpeningBracket() {
+        Type("(");
+    }
+
     public void TypeClosingBracket(String s) {
         Type(s);
         Type(")");
     }
 
-    public void TypeOpeningBracket() {
-        Type("(");
+    public String Evaluate() {
+        ArrayList<String> calculationInPolishNotation = output();
+        ReversePolishNotation reversePolishIndependent = new ReversePolishNotation();
+        String calculationResult = reversePolishIndependent.calculate(calculationInPolishNotation);
+        reset();
+        return calculationResult;
+    }
+
+    public void TypeEquals(String value) {
+        if (IsNumber(value)) {
+            Type(value);
+        }
     }
 }
 
