@@ -19,7 +19,7 @@ public class Calculator extends JFrame implements ActionListener {
     private JButton delBtn, clearBtn;
     public JButton NumberBtn[];
     public JButton functionBtn[];
-    public JButton Add_btn, Sub_btn, Mul_btn, Div_btn, equalBtn, decBtn, leftBracketBtn, rightBracketBtn;
+    public JButton Add_btn, Sub_btn, Mul_btn, Div_btn, equalBtn, decBtn, openBracket_btn, closeBracket_btn;
     private JPanel panel;
     private JTextField text;
 
@@ -63,16 +63,16 @@ public class Calculator extends JFrame implements ActionListener {
         Div_btn = new JButton("/");
         equalBtn = new JButton("=");
         decBtn = new JButton(".");
-        leftBracketBtn = new JButton("(");
-        rightBracketBtn = new JButton(")");
+        openBracket_btn = new JButton("(");
+        closeBracket_btn = new JButton(")");
 
         clearBtn = new JButton("CE");
-        clearBtn.setLocation(new Point(20, 300));
+        clearBtn.setLocation(new Point(20, 330));
 
         delBtn = new JButton("CLR");
-        delBtn.setLocation(new Point(170, 300));
+        delBtn.setLocation(new Point(170, 330));
 
-        functionBtn = new JButton[8];
+        functionBtn = new JButton[10];
 
         functionBtn[0] = Add_btn;
         functionBtn[1] = Sub_btn;
@@ -82,8 +82,10 @@ public class Calculator extends JFrame implements ActionListener {
         functionBtn[5] = delBtn;
         functionBtn[6] = clearBtn;
         functionBtn[7] = decBtn;
+        functionBtn[8] = openBracket_btn;
+        functionBtn[9] = closeBracket_btn;
 
-        for (int i = 0; i < 8; i++) {
+        for (int i = 0; i < 10; i++) {
             functionBtn[i].setFocusable(false);
             functionBtn[i].setVerticalTextPosition(JButton.CENTER);
             functionBtn[i].setHorizontalTextPosition(JButton.CENTER);
@@ -125,6 +127,8 @@ public class Calculator extends JFrame implements ActionListener {
         panel.add(NumberBtn[0]);
         panel.add(functionBtn[4]);
         panel.add(functionBtn[3]);
+        panel.add(functionBtn[8]);
+        panel.add(functionBtn[9]);
 
         this.add(functionBtn[6]);
         this.add(functionBtn[5]);
@@ -329,6 +333,16 @@ public class Calculator extends JFrame implements ActionListener {
                 }
             }
 
+        }
+        if (e.getSource() == functionBtn[8]) { // (
+            shuntingYard.Type("(");
+        }
+        if (e.getSource() == functionBtn[9]) { // (
+            if (!text.getText().isEmpty()) {
+                current = Double.valueOf(text.getText());
+                shuntingYard.Type(String.valueOf(current));
+                shuntingYard.Type(")");
+            }
         }
 
         for (int i = 0; i < 10; i++) { // number button
