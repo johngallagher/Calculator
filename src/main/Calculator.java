@@ -17,7 +17,7 @@ public class Calculator extends JFrame implements ActionListener {
     private JPanel panel;
     private JTextField text;
     private int x = 0;
-    private Expression expression;
+    private ReversePolishNotationExpression expression;
 
     public Calculator() {
         initialize();
@@ -122,7 +122,7 @@ public class Calculator extends JFrame implements ActionListener {
         this.setVisible(true);
         this.setLocationRelativeTo(null);
 
-        expression = new Expression();
+        expression = new ReversePolishNotationExpression();
     }
 
     public String valueText() {

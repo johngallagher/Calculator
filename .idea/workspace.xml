@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ffdb8472-d941-4ceb-b292-7309d4053c75" name="Changes" comment="refactor: calculation is decoupled from UI">
+    <list default="true" id="ffdb8472-d941-4ceb-b292-7309d4053c75" name="Changes" comment="refactor: better name">
       <change beforePath="$PROJECT_DIR$/src/main/Calculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Calculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/ShuntingYard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Expression.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/ShuntingYardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/ExpressionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Expression.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ReversePolishNotationExpression.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/ExpressionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/ReversePolishNotationExpressionTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,7 +187,14 @@
       <option name="project" value="LOCAL" />
       <updated>1694975776617</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="refactor: better name">
+      <created>1694976187637</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1694976187637</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -195,7 +202,8 @@
     <MESSAGE value="refactor: encapsulate into ShuntingYard" />
     <MESSAGE value="refactor: prepare for moving into separate class" />
     <MESSAGE value="refactor: calculation is decoupled from UI" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: calculation is decoupled from UI" />
+    <MESSAGE value="refactor: better name" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: better name" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -205,16 +213,16 @@
           <option name="timeStamp" value="2" />
         </breakpoint>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/test/ExpressionTest.java</url>
+          <url>file://$PROJECT_DIR$/src/test/ReversePolishNotationExpressionTest.java</url>
           <line>33</line>
-          <properties class="test.ExpressionTest" method="testWithBrackets">
+          <properties class="test.ReversePolishNotationExpressionTest" method="testWithBrackets">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/Expression.java</url>
+          <url>file://$PROJECT_DIR$/src/main/ReversePolishNotationExpression.java</url>
           <line>152</line>
           <option name="timeStamp" value="15" />
         </line-breakpoint>

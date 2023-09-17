@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Stack;
 import java.lang.Character;
 
-public class Expression {
+public class ReversePolishNotationExpression {
 
     private ArrayList<String> output;
     private Stack<String> stack;
@@ -41,14 +41,14 @@ public class Expression {
         }
     }
 
-    public Expression() {
+    public ReversePolishNotationExpression() {
         output = new ArrayList<>();
         stack = new Stack<>();
     }
 
     // Method converts given infixto postfix expression
     // to illustrate shunting yard algorithm
-    public ArrayList<String> output() {
+    public ArrayList<String> ToPostfix() {
         // pop all the remaining operators from
         // the stack and append them to output
         while (!stack.isEmpty()) {
@@ -142,7 +142,7 @@ public class Expression {
     }
 
     public String Evaluate() {
-        ArrayList<String> calculationInPolishNotation = output();
+        ArrayList<String> calculationInPolishNotation = ToPostfix();
         ReversePolishNotation reversePolishIndependent = new ReversePolishNotation();
         String calculationResult = reversePolishIndependent.calculate(calculationInPolishNotation);
         Reset();
