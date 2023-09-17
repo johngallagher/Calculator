@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ffdb8472-d941-4ceb-b292-7309d4053c75" name="Changes" comment="refactor: prepare for moving into separate class">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="ffdb8472-d941-4ceb-b292-7309d4053c75" name="Changes" comment="refactor: calculation is decoupled from UI">
       <change beforePath="$PROJECT_DIR$/src/main/Calculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Calculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/ShuntingYard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ShuntingYard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/ShuntingYard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Expression.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/ShuntingYardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/ExpressionTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,14 +180,22 @@
       <option name="project" value="LOCAL" />
       <updated>1694974317306</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="refactor: calculation is decoupled from UI">
+      <created>1694975776617</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1694975776617</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fix: use correct algorithm broken out" />
     <MESSAGE value="refactor: encapsulate into ShuntingYard" />
     <MESSAGE value="refactor: prepare for moving into separate class" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: prepare for moving into separate class" />
+    <MESSAGE value="refactor: calculation is decoupled from UI" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: calculation is decoupled from UI" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -197,23 +205,18 @@
           <option name="timeStamp" value="2" />
         </breakpoint>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/test/ShuntingYardTest.java</url>
+          <url>file://$PROJECT_DIR$/src/test/ExpressionTest.java</url>
           <line>33</line>
-          <properties class="test.ShuntingYardTest" method="testWithBrackets">
+          <properties class="test.ExpressionTest" method="testWithBrackets">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/ShuntingYard.java</url>
+          <url>file://$PROJECT_DIR$/src/main/Expression.java</url>
           <line>152</line>
           <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/Calculator.java</url>
-          <line>172</line>
-          <option name="timeStamp" value="16" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

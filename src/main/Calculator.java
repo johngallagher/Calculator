@@ -17,7 +17,7 @@ public class Calculator extends JFrame implements ActionListener {
     private JPanel panel;
     private JTextField text;
     private int x = 0;
-    private ShuntingYard shuntingYard;
+    private Expression expression;
 
     public Calculator() {
         initialize();
@@ -122,7 +122,7 @@ public class Calculator extends JFrame implements ActionListener {
         this.setVisible(true);
         this.setLocationRelativeTo(null);
 
-        shuntingYard = new ShuntingYard();
+        expression = new Expression();
     }
 
     public String valueText() {
@@ -135,36 +135,36 @@ public class Calculator extends JFrame implements ActionListener {
 
         if (e.getSource() == functionBtn[0]) {//addition
             if (!text.getText().isEmpty()) {
-                shuntingYard.TypeOperand("+", text.getText());
+                expression.TypeOperand("+", text.getText());
                 x = 1;
             }
         }
 
         if (e.getSource() == functionBtn[1]) {//substration
             if (!text.getText().isEmpty()) {
-                shuntingYard.TypeOperand("-", text.getText());
+                expression.TypeOperand("-", text.getText());
                 x = 1;
             }
         }
 
         if (e.getSource() == functionBtn[2]) {//multiplication
             if (!text.getText().isEmpty()) {
-                shuntingYard.TypeOperand("*", text.getText());
+                expression.TypeOperand("*", text.getText());
                 x = 1;
             }
         }
 
         if (e.getSource() == functionBtn[3]) {//division
             if (!text.getText().isEmpty()) {
-                shuntingYard.TypeOperand("/", text.getText());
+                expression.TypeOperand("/", text.getText());
                 x = 1;
             }
         }
 
         if (e.getSource() == functionBtn[4]) {// equals operation
             if (!text.getText().isEmpty()) {
-                shuntingYard.TypeEquals(text.getText());
-                text.setText(shuntingYard.Evaluate());
+                expression.TypeEquals(text.getText());
+                text.setText(expression.Evaluate());
             }
         }
 
@@ -175,7 +175,7 @@ public class Calculator extends JFrame implements ActionListener {
         if (e.getSource() == functionBtn[6]) {// clear function
             x = 0;
             text.setText("");
-            shuntingYard.reset();
+            expression.Reset();
         }
 
         if (e.getSource() == functionBtn[7]) { // decimal function
@@ -195,11 +195,11 @@ public class Calculator extends JFrame implements ActionListener {
 
         }
         if (e.getSource() == functionBtn[8]) { // (
-            shuntingYard.TypeOpeningBracket();
+            expression.TypeOpeningBracket();
         }
         if (e.getSource() == functionBtn[9]) { // (
             if (!text.getText().isEmpty()) {
-                shuntingYard.TypeClosingBracket(text.getText());
+                expression.TypeClosingBracket(text.getText());
             }
         }
 

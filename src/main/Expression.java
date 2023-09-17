@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Stack;
 import java.lang.Character;
 
-public class ShuntingYard {
+public class Expression {
 
     private ArrayList<String> output;
     private Stack<String> stack;
@@ -41,7 +41,7 @@ public class ShuntingYard {
         }
     }
 
-    public ShuntingYard() {
+    public Expression() {
         output = new ArrayList<>();
         stack = new Stack<>();
     }
@@ -100,7 +100,7 @@ public class ShuntingYard {
         }
     }
 
-    public void reset() {
+    public void Reset() {
         output.clear();
         stack.clear();
     }
@@ -145,7 +145,7 @@ public class ShuntingYard {
         ArrayList<String> calculationInPolishNotation = output();
         ReversePolishNotation reversePolishIndependent = new ReversePolishNotation();
         String calculationResult = reversePolishIndependent.calculate(calculationInPolishNotation);
-        reset();
+        Reset();
         return calculationResult;
     }
 
