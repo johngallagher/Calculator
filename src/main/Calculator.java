@@ -122,7 +122,7 @@ public class Calculator extends JFrame implements ActionListener {
         this.setVisible(true);
         this.setLocationRelativeTo(null);
 
-        expression = new ImmediateEvaluationExpression();
+        expression = new ReversePolishNotationExpression();
     }
 
     public String valueText() {
