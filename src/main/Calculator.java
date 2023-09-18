@@ -1,14 +1,7 @@
 package main;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.Stack;
-
 import java.awt.*;
 import java.awt.event.*;
-import java.util.Stack;
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JTextField;
@@ -18,12 +11,10 @@ public class Calculator extends JFrame implements ActionListener {
     private JButton delBtn, clearBtn;
     public JButton NumberBtn[];
     public JButton functionBtn[];
-    public JButton Add_btn, Sub_btn, Mul_btn, Div_btn, equalBtn, decBtn, leftBracketBtn, rightBracketBtn;
+    public JButton Add_btn, Sub_btn, Mul_btn, Div_btn, equalBtn, decBtn;
     private JPanel panel;
     private JTextField text;
 
-    private Stack<Double> numbers;
-    private Stack<Character> operators;
     private double number, result = 0, current, temp = 0;
     private char operator = ' ';
     private int x = 0;
@@ -52,16 +43,12 @@ public class Calculator extends JFrame implements ActionListener {
         panel.setSize(new Dimension(250, 250));
         panel.setLocation(new Point(20, 70));
 
-        numbers = new Stack<Double>();
-        operators = new Stack<Character>();
         Add_btn = new JButton("+");
         Sub_btn = new JButton("-");
         Mul_btn = new JButton("*");
         Div_btn = new JButton("/");
         equalBtn = new JButton("=");
         decBtn = new JButton(".");
-        leftBracketBtn = new JButton("(");
-        rightBracketBtn = new JButton(")");
 
         clearBtn = new JButton("CE");
         clearBtn.setLocation(new Point(20, 330));
@@ -123,10 +110,16 @@ public class Calculator extends JFrame implements ActionListener {
         panel.add(functionBtn[4]);
         panel.add(functionBtn[3]);
 
+        this.add(functionBtn[6]);
+        this.add(functionBtn[5]);
         this.add(text);
         this.add(panel);
         this.setVisible(true);
         this.setLocationRelativeTo(null);
+    }
+
+    public String valueText() {
+        return text.getText();
     }
 
     private void operation(char opt, double curr) {
@@ -151,10 +144,6 @@ public class Calculator extends JFrame implements ActionListener {
         text.setText(String.valueOf(result));
         temp = result;
         x = 0;
-    }
-
-    public String valueText() {
-        return text.getText();
     }
 
     @Override
@@ -183,12 +172,9 @@ public class Calculator extends JFrame implements ActionListener {
                     temp = result;
                     x = 1;
                 }
-                numbers.add(current);
-                operators.add('+');
             }
         }
 
-        // Duplication is an instance of things NOT being coupled together that SHOULD be coupled together
         if (e.getSource() == functionBtn[1]) {//substration
             if (!text.getText().isEmpty()) {
                 current = Double.valueOf(text.getText());
@@ -212,8 +198,6 @@ public class Calculator extends JFrame implements ActionListener {
                     temp = result;
                     x = 1;
                 }
-                numbers.add(current);
-                operators.add('-');
             }
         }
 
@@ -239,8 +223,6 @@ public class Calculator extends JFrame implements ActionListener {
                     temp = result;
                     x = 1;
                 }
-                numbers.add(current);
-                operators.add('*');
             }
         }
 
@@ -266,19 +248,14 @@ public class Calculator extends JFrame implements ActionListener {
                     temp = result;
                     x = 1;
                 }
-                numbers.add(current);
-                operators.add('/');
             }
         }
 
         if (e.getSource() == functionBtn[4]) {// equals operation
             if (!text.getText().isEmpty()) {
                 current = Double.valueOf(text.getText());
-                numbers.add(current);
-                String calculationResult = calculateResult();
-                text.setText(calculationResult);
+                operation(operator, current);
                 operator = ' ';
-                x = 3;
             }
         }
 
@@ -322,27 +299,10 @@ public class Calculator extends JFrame implements ActionListener {
                 } else {
                     text.setText(text.getText().concat(String.valueOf(i)));
                 }
+
+
             }
         }
-    }
 
-    private String calculateResult() {
-        Double second = numbers.pop();
-        Double first = numbers.pop();
-        Character firstOperator = operators.pop();
-        switch (firstOperator) {
-            case '+':
-                return Double.toString(first + second);
-
-            case '-':
-                return Double.toString(first - second);
-
-            case '*':
-                return Double.toString(first * second);
-
-            case '/':
-                return Double.toString(first / second);
-        }
-        return null;
     }
 }
