@@ -4,9 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ffdb8472-d941-4ceb-b292-7309d4053c75" name="Changes" comment="test: extra coverage of brackets">
+    <list default="true" id="ffdb8472-d941-4ceb-b292-7309d4053c75" name="Changes" comment="wip: code we wish we had">
+      <change afterPath="$PROJECT_DIR$/src/main/CalculatorButton.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/CalculatorOperation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/DisplayBuffer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Calculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Calculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/IExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/IExpression.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/ImmediateEvaluationExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ImmediateEvaluationExpression.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/ReversePolishNotationExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ReversePolishNotationExpression.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,8 +23,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="JUnit4 Test Class" />
+        <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -72,6 +79,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="CalculatorTest.testAddThreeAndTwo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Calculator" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test" />
+      <option name="MAIN_CLASS_NAME" value="test.CalculatorTest" />
+      <option name="METHOD_NAME" value="testAddThreeAndTwo" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CalculatorTest.testPressingEqualsAfterACalculationClears" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Calculator" />
       <extension name="coverage">
@@ -100,21 +123,6 @@
       <option name="MAIN_CLASS_NAME" value="test.CalculatorTest" />
       <option name="METHOD_NAME" value="testThreeNumbersWithMultiplyAndAdd" />
       <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ImmediateEvaluationExpressionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Calculator" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="test" />
-      <option name="MAIN_CLASS_NAME" value="test.ImmediateEvaluationExpressionTest" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -148,18 +156,18 @@
     <list>
       <item itemvalue="Application.Main" />
       <item itemvalue="JUnit.Tests" />
+      <item itemvalue="JUnit.CalculatorTest.testAddThreeAndTwo" />
       <item itemvalue="JUnit.CalculatorTest.testPressingEqualsAfterACalculationClears" />
       <item itemvalue="JUnit.CalculatorTest.testThreeNumbersWithMultiplyAndAdd" />
-      <item itemvalue="JUnit.ImmediateEvaluationExpressionTest" />
       <item itemvalue="JUnit.ImmediateEvaluationExpressionTest.testThreeNumbersWithAddAndMultiply" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CalculatorTest.testAddThreeAndTwo" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.CalculatorTest.testThreeNumbersWithMultiplyAndAdd" />
         <item itemvalue="JUnit.CalculatorTest.testPressingEqualsAfterACalculationClears" />
         <item itemvalue="JUnit.ImmediateEvaluationExpressionTest.testThreeNumbersWithAddAndMultiply" />
-        <item itemvalue="JUnit.ImmediateEvaluationExpressionTest" />
       </list>
     </recent_temporary>
   </component>
@@ -235,7 +243,14 @@
       <option name="project" value="LOCAL" />
       <updated>1695477275393</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="wip: code we wish we had">
+      <created>1695488902737</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1695488902737</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -261,7 +276,8 @@
     <MESSAGE value="test(fail): number should replace output" />
     <MESSAGE value="test(pass): number should replace output" />
     <MESSAGE value="test: extra coverage of brackets" />
-    <option name="LAST_COMMIT_MESSAGE" value="test: extra coverage of brackets" />
+    <MESSAGE value="wip: code we wish we had" />
+    <option name="LAST_COMMIT_MESSAGE" value="wip: code we wish we had" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">

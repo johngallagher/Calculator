@@ -20,4 +20,10 @@ public interface IExpression {
     String Evaluate();
 
     void TypeEquals(String value);
+
+    void EnterNumber(String value);
+
+    void EnterOperator(CalculatorOperation operator);
+
+    void Clear();
 }

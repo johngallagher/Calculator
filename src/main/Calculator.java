@@ -18,6 +18,7 @@ public class Calculator extends JFrame implements ActionListener {
     private JTextField text;
     private int x = 0;
     private IExpression expression;
+    private DisplayBuffer displayBuffer;
 
     public Calculator() {
         initialize();
@@ -123,6 +124,7 @@ public class Calculator extends JFrame implements ActionListener {
         this.setLocationRelativeTo(null);
 
         expression = new ReversePolishNotationExpression();
+        displayBuffer = new DisplayBuffer(text);
     }
 
     public String valueText() {
@@ -133,8 +135,8 @@ public class Calculator extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         CalculatorButton button = CalculatorButton.fromActionEvent(e);
         if (button.RepresentsOperator()) {
-            expression.TypeNumber(displayBuffer.Pop());
-            expression.TypeOperator(button.Operator());
+            expression.EnterNumber(displayBuffer.Pop());
+            expression.EnterOperator(button.Operation());
         } else if (button.RepresentsNumber()) {
             displayBuffer.Append(button.Number());
         } else if (button.RepresentsDecimal()) {
@@ -142,10 +144,10 @@ public class Calculator extends JFrame implements ActionListener {
         } else if (button.RepresentsClear()) {
             displayBuffer.Pop();
             expression.Clear();
-        } else if (button.representsDelete()) {
+        } else if (button.RepresentsDelete()) {
             displayBuffer.Pop();
-        } else if (button.representsEquals()) {
-            expression.TypeNumber(displayBuffer.Pop());
+        } else if (button.RepresentsEquals()) {
+            expression.EnterNumber(displayBuffer.Pop());
             displayBuffer.Clear();
             displayBuffer.Push(expression.Evaluate());
         }

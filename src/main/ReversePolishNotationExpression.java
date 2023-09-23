@@ -162,5 +162,20 @@ public class ReversePolishNotationExpression implements IExpression {
             Type(value);
         }
     }
+
+    @Override
+    public void EnterNumber(String value) {
+        Type(value);
+    }
+
+    @Override
+    public void EnterOperator(CalculatorOperation operator) {
+        Type(operator.getSymbol());
+    }
+
+    @Override
+    public void Clear() {
+        Reset();
+    }
 }
 

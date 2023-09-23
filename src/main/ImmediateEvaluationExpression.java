@@ -76,4 +76,19 @@ public class ImmediateEvaluationExpression implements IExpression {
     public void TypeEquals(String value) {
         expression.add(value);
     }
+
+    @Override
+    public void EnterNumber(String value) {
+
+    }
+
+    @Override
+    public void EnterOperator(CalculatorOperation operator) {
+
+    }
+
+    @Override
+    public void Clear() {
+
+    }
 }
