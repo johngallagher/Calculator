@@ -76,7 +76,6 @@ public class CalculatorTest {
         calculator.actionPerformed(eventWithButton(calculator.equalBtn));
         Assert.assertEquals("1 + 1 * 5 = 6", "6.0", calculator.valueText());
     }
-    @Ignore
     @Test
     public void testBracketsWork() {
         Calculator calculator = new Calculator();
