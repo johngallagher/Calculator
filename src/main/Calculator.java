@@ -144,10 +144,10 @@ public class Calculator extends JFrame implements ActionListener {
         } else if (button.RepresentsDecimal()) {
             displayBuffer.Append(".");
         } else if (button.RepresentsClear()) {
-            displayBuffer.Pop();
+            displayBuffer.Clear();
             expression.Clear();
         } else if (button.RepresentsDelete()) {
-            displayBuffer.Pop();
+            displayBuffer.Clear();
         } else if (button.RepresentsOpenBracket()) {
             expression.EnterOperator(button.Operation());
         } else if (button.RepresentsCloseBracket()) {
