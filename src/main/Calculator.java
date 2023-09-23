@@ -131,89 +131,23 @@ public class Calculator extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        //flag = false;
-
-        if (e.getSource() == functionBtn[0]) {//addition
-            if (!text.getText().isEmpty()) {
-                expression.TypeOperand("+", text.getText());
-                x = 1;
-            }
-        }
-
-        if (e.getSource() == functionBtn[1]) {//substration
-            if (!text.getText().isEmpty()) {
-                expression.TypeOperand("-", text.getText());
-                x = 1;
-            }
-        }
-
-        if (e.getSource() == functionBtn[2]) {//multiplication
-            if (!text.getText().isEmpty()) {
-                expression.TypeOperand("*", text.getText());
-                x = 1;
-            }
-        }
-
-        if (e.getSource() == functionBtn[3]) {//division
-            if (!text.getText().isEmpty()) {
-                expression.TypeOperand("/", text.getText());
-                x = 1;
-            }
-        }
-
-        if (e.getSource() == functionBtn[4]) {// equals operation
-            if (!text.getText().isEmpty()) {
-                expression.TypeEquals(text.getText());
-                text.setText(expression.Evaluate());
-                x = 1;
-            }
-        }
-
-        if (e.getSource() == functionBtn[5]) {// del function
-            text.setText("");
-        }
-
-        if (e.getSource() == functionBtn[6]) {// clear function
-            x = 0;
-            text.setText("");
-            expression.Reset();
-        }
-
-        if (e.getSource() == functionBtn[7]) { // decimal function
-            if (x == 1) {
-                text.setText("");
-
-                if (!text.getText().contains(".")) {
-                    text.setText(text.getText().concat("."));
-                }
-
-                x = 0;
-            } else {
-                if (!text.getText().contains(".")) {
-                    text.setText(text.getText().concat("."));
-                }
-            }
-
-        }
-        if (e.getSource() == functionBtn[8]) { // (
-            expression.TypeOpeningBracket();
-        }
-        if (e.getSource() == functionBtn[9]) { // (
-            if (!text.getText().isEmpty()) {
-                expression.TypeClosingBracket(text.getText());
-            }
-        }
-
-        for (int i = 0; i < 10; i++) { // number button
-            if (e.getSource() == NumberBtn[i]) {
-                if (x == 1) {
-                    text.setText("");
-                    text.setText(text.getText().concat(String.valueOf(i)));
-                    x = 2;
-                } else {
-                    text.setText(text.getText().concat(String.valueOf(i)));
-                }
-            }
+        CalculatorButton button = CalculatorButton.fromActionEvent(e);
+        if (button.RepresentsOperator()) {
+            expression.TypeNumber(displayBuffer.Pop());
+            expression.TypeOperator(button.Operator());
+        } else if (button.RepresentsNumber()) {
+            displayBuffer.Append(button.Number());
+        } else if (button.RepresentsDecimal()) {
+            displayBuffer.Append(".");
+        } else if (button.RepresentsClear()) {
+            displayBuffer.Pop();
+            expression.Clear();
+        } else if (button.representsDelete()) {
+            displayBuffer.Pop();
+        } else if (button.representsEquals()) {
+            expression.TypeNumber(displayBuffer.Pop());
+            displayBuffer.Clear();
+            displayBuffer.Push(expression.Evaluate());
         }
     }
 }
