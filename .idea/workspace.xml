@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ffdb8472-d941-4ceb-b292-7309d4053c75" name="Changes" comment="refactor: name by implementation">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Calculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Calculator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -153,8 +154,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CalculatorTest.testThreeNumbersWithMultiplyAndAdd" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.CalculatorTest.testThreeNumbersWithMultiplyAndAdd" />
         <item itemvalue="JUnit.CalculatorTest.testPressingEqualsAfterACalculationClears" />
         <item itemvalue="JUnit.ImmediateEvaluationExpressionTest.testThreeNumbersWithAddAndMultiply" />
         <item itemvalue="JUnit.ImmediateEvaluationExpressionTest" />
@@ -252,17 +253,17 @@
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/ReversePolishNotationExpression.java</url>
-          <line>152</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/ReversePolishNotationExpressionTest.java</url>
           <line>7</line>
           <option name="timeStamp" value="20" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="main.Calculator" memberName="current" />
+      </pinned-members>
+    </pin-to-top-manager>
     <watches-manager>
       <configuration name="JUnit">
         <watch expression="((ImmediateEvaluationExpression)this).result" custom="main.ImmediateEvaluationExpression" />

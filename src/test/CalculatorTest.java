@@ -91,7 +91,6 @@ public class CalculatorTest {
         Assert.assertEquals("(1 + 1) * 5 = 10", "10.0", calculator.valueText());
     }
 
-    @Ignore
     @Test
     public void testPressingEqualsAfterACalculationClears() {
         Calculator calculator = new Calculator();
@@ -101,8 +100,7 @@ public class CalculatorTest {
         calculator.actionPerformed(eventWithButton(calculator.equalBtn));
         Assert.assertEquals("1 + 1 = 2", "2.0", calculator.valueText());
         calculator.actionPerformed(eventWithButton(calculator.NumberBtn[1]));
-        calculator.actionPerformed(eventWithButton(calculator.equalBtn));
-        Assert.assertEquals("Appending a 1 at the end of the output", "2.01", calculator.valueText());
+        Assert.assertEquals("1", calculator.valueText());
     }
 
     private static ActionEvent eventWithButton(JButton calculator) {
