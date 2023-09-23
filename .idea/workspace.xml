@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ffdb8472-d941-4ceb-b292-7309d4053c75" name="Changes" comment="refactor: clear is a better name">
+    <list default="true" id="ffdb8472-d941-4ceb-b292-7309d4053c75" name="Changes" comment="fix: reset display when number typed after equals">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Calculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Calculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/IExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/IExpression.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/ImmediateEvaluationExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ImmediateEvaluationExpression.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/ReversePolishNotationExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ReversePolishNotationExpression.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/CalculatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/CalculatorTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +66,7 @@
       <recent name="test" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.Tests">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main.Main" />
       <module name="Calculator" />
@@ -87,6 +85,22 @@
       <option name="PACKAGE_NAME" value="test" />
       <option name="MAIN_CLASS_NAME" value="test.CalculatorTest" />
       <option name="METHOD_NAME" value="testAddThreeAndTwo" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CalculatorTest.testBracketsFirstExpression" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Calculator" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test" />
+      <option name="MAIN_CLASS_NAME" value="test.CalculatorTest" />
+      <option name="METHOD_NAME" value="testBracketsFirstExpression" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -124,22 +138,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CalculatorTest.testThreeNumbersWithMultiplyAndAdd" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Calculator" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="test" />
-      <option name="MAIN_CLASS_NAME" value="test.CalculatorTest" />
-      <option name="METHOD_NAME" value="testThreeNumbersWithMultiplyAndAdd" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Tests" type="JUnit" factoryName="JUnit">
       <module name="Calculator" />
       <option name="PACKAGE_NAME" value="test" />
@@ -154,17 +152,17 @@
       <item itemvalue="Application.Main" />
       <item itemvalue="JUnit.Tests" />
       <item itemvalue="JUnit.CalculatorTest.testAddThreeAndTwo" />
+      <item itemvalue="JUnit.CalculatorTest.testBracketsFirstExpression" />
       <item itemvalue="JUnit.CalculatorTest.testBracketsWork" />
       <item itemvalue="JUnit.CalculatorTest.testPressingEqualsAfterACalculationClears" />
-      <item itemvalue="JUnit.CalculatorTest.testThreeNumbersWithMultiplyAndAdd" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.CalculatorTest.testBracketsFirstExpression" />
         <item itemvalue="JUnit.CalculatorTest.testPressingEqualsAfterACalculationClears" />
         <item itemvalue="JUnit.CalculatorTest.testBracketsWork" />
         <item itemvalue="JUnit.CalculatorTest.testAddThreeAndTwo" />
-        <item itemvalue="JUnit.CalculatorTest.testThreeNumbersWithMultiplyAndAdd" />
       </list>
     </recent_temporary>
   </component>
@@ -268,7 +266,14 @@
       <option name="project" value="LOCAL" />
       <updated>1695495509271</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="fix: reset display when number typed after equals">
+      <created>1695496627777</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1695496627777</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -298,7 +303,8 @@
     <MESSAGE value="test(fail): two tests failing" />
     <MESSAGE value="fix: brackets work" />
     <MESSAGE value="refactor: clear is a better name" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: clear is a better name" />
+    <MESSAGE value="fix: reset display when number typed after equals" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: reset display when number typed after equals" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -328,9 +334,15 @@
           <option name="timeStamp" value="28" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/Calculator.java</url>
-          <line>142</line>
-          <option name="timeStamp" value="29" />
+          <condition expression="operator == CalculatorOperation.Multiply" language="JAVA" />
+          <url>file://$PROJECT_DIR$/src/main/ReversePolishNotationExpression.java</url>
+          <line>194</line>
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/ReversePolishNotationExpression.java</url>
+          <line>96</line>
+          <option name="timeStamp" value="35" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

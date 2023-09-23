@@ -156,8 +156,12 @@ public class Calculator extends JFrame implements ActionListener {
         } else if (button.RepresentsCloseBracket()) {
             expression.EnterNumber(displayBuffer.Pop());
             expression.EnterOperator(button.Operation());
-        } else if (button.RepresentsEquals()) {
+        } else if (button.RepresentsEquals() && expression.LastCharacterIsNotClosedBracket()) {
             expression.EnterNumber(displayBuffer.Pop());
+            expression.EnterOperator(button.Operation());
+            displayBuffer.Clear();
+            displayBuffer.Push(expression.Evaluate());
+        } else if (button.RepresentsEquals() && expression.LastCharacterIsClosedBracket()) {
             expression.EnterOperator(button.Operation());
             displayBuffer.Clear();
             displayBuffer.Push(expression.Evaluate());

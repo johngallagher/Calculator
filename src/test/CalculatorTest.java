@@ -102,6 +102,20 @@ public class CalculatorTest {
         Assert.assertEquals("1", calculator.valueText());
     }
 
+    @Test
+    public void testBracketsFirstExpression() {
+        Calculator calculator = new Calculator();
+        calculator.actionPerformed(eventWithButton(calculator.NumberBtn[1]));
+        calculator.actionPerformed(eventWithButton(calculator.Add_btn));
+        calculator.actionPerformed(eventWithButton(calculator.openBracket_btn));
+        calculator.actionPerformed(eventWithButton(calculator.NumberBtn[1]));
+        calculator.actionPerformed(eventWithButton(calculator.Mul_btn));
+        calculator.actionPerformed(eventWithButton(calculator.NumberBtn[2]));
+        calculator.actionPerformed(eventWithButton(calculator.closeBracket_btn));
+        calculator.actionPerformed(eventWithButton(calculator.equalBtn));
+        Assert.assertEquals("1 + (1 * 2) = 3", "3.0", calculator.valueText());
+    }
+
     private static ActionEvent eventWithButton(JButton calculator) {
         return new ActionEvent(calculator, 0, "");
     }
