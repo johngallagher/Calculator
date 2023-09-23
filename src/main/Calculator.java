@@ -134,32 +134,35 @@ public class Calculator extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         CalculatorButton buttonPressed = CalculatorButton.fromActionEvent(e);
-        if (buttonPressed.WasOperation()) {
-            if (expression.LastTermWasNotClosedBracket())
-                expression.EnterNumber(displayBuffer.Pop());
-            expression.EnterOperation(buttonPressed.Operation());
-        } else if (buttonPressed.WasANumber()) {
-            if (expression.LastCharacterWasEquals())
+        switch (buttonPressed.Type()) {
+            case Number -> {
+                if (expression.LastCharacterWasEquals())
+                    displayBuffer.Clear();
+                displayBuffer.Append(buttonPressed.Number());
+            }
+            case Decimal -> displayBuffer.Append(".");
+            case Clear -> {
                 displayBuffer.Clear();
-            displayBuffer.Append(buttonPressed.Number());
-        } else if (buttonPressed.WasDecimalPoint()) {
-            displayBuffer.Append(".");
-        } else if (buttonPressed.WasClear()) {
-            displayBuffer.Clear();
-            expression.Clear();
-        } else if (buttonPressed.WasDelete()) {
-            displayBuffer.Clear();
-        } else if (buttonPressed.WasOpenBracket()) {
-            expression.EnterOperation(buttonPressed.Operation());
-        } else if (buttonPressed.WasClosedBracket()) {
-            expression.EnterNumber(displayBuffer.Pop());
-            expression.EnterOperation(buttonPressed.Operation());
-        } else if (buttonPressed.WasEquals()) {
-            if (expression.LastTermWasNotClosedBracket())
+                expression.Clear();
+            }
+            case Delete -> displayBuffer.Clear();
+            case OpenBracket -> expression.EnterOperation(buttonPressed.Operation());
+            case CloseBracket -> {
                 expression.EnterNumber(displayBuffer.Pop());
-            expression.EnterOperation(buttonPressed.Operation());
-            displayBuffer.Clear();
-            displayBuffer.Push(expression.Evaluate());
+                expression.EnterOperation(buttonPressed.Operation());
+            }
+            case Multiply, Add, Subtract, Divide -> {
+                if (expression.LastTermWasNotClosedBracket())
+                    expression.EnterNumber(displayBuffer.Pop());
+                expression.EnterOperation(buttonPressed.Operation());
+            }
+            case Equals -> {
+                if (expression.LastTermWasNotClosedBracket())
+                    expression.EnterNumber(displayBuffer.Pop());
+                expression.EnterOperation(buttonPressed.Operation());
+                displayBuffer.Clear();
+                displayBuffer.Push(expression.Evaluate());
+            }
         }
     }
 }

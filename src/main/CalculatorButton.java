@@ -91,4 +91,8 @@ public class CalculatorButton {
     public boolean WasOpenBracket() {
         return this.operation == CalculatorOperation.OpenBracket;
     }
+
+    public CalculatorOperation Type() {
+        return this.operation;
+    }
 }
