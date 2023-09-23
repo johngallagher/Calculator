@@ -6,7 +6,7 @@ import java.lang.Character;
 
 public class ReversePolishNotationExpression implements IExpression {
 
-    private final ArrayList<String> characters;
+    private final ArrayList<String> terms;
     private ArrayList<String> output;
     private Stack<String> stack;
 
@@ -45,7 +45,7 @@ public class ReversePolishNotationExpression implements IExpression {
     public ReversePolishNotationExpression() {
         output = new ArrayList<>();
         stack = new Stack<>();
-        characters = new ArrayList<>();
+        terms = new ArrayList<>();
     }
 
     // Method converts given infixto postfix expression
@@ -63,25 +63,25 @@ public class ReversePolishNotationExpression implements IExpression {
     }
 
 
-    public boolean LastCharacterIsClosedBracket() {
-        if (characters.isEmpty())
+    public boolean LastTermWasClosedBracket() {
+        if (terms.isEmpty())
             return false;
-        else if (characters.get(characters.size() - 1) == ")")
+        else if (terms.get(terms.size() - 1) == ")")
             return true;
         else
             return false;
     }
 
     @Override
-    public boolean LastCharacterIsNotClosedBracket() {
-        return !LastCharacterIsClosedBracket();
+    public boolean LastTermWasNotClosedBracket() {
+        return !LastTermWasClosedBracket();
     }
 
     @Override
-    public boolean LastCharacterIsEquals() {
-        if (characters.isEmpty())
+    public boolean LastCharacterWasEquals() {
+        if (terms.isEmpty())
             return false;
-        else if (characters.get(characters.size() - 1) == "=")
+        else if (terms.get(terms.size() - 1) == "=")
             return true;
         else
             return false;
@@ -89,12 +89,12 @@ public class ReversePolishNotationExpression implements IExpression {
 
     @Override
     public boolean LastCharacterIsNotEquals() {
-        return !LastCharacterIsEquals();
+        return !LastCharacterWasEquals();
     }
 
     @Override
     public void Type(String s) {
-        characters.add(s);
+        terms.add(s);
         if (letterOrDigit(s))
             output.add(s);
 
@@ -146,7 +146,7 @@ public class ReversePolishNotationExpression implements IExpression {
     }
 
     private boolean LastCharacterWasNumber() {
-        return !LastCharacterIsClosedBracket() && !LastCharacterIsOperand();
+        return !LastTermWasClosedBracket() && !LastCharacterIsOperand();
     }
 
     @Override
@@ -191,7 +191,7 @@ public class ReversePolishNotationExpression implements IExpression {
     }
 
     @Override
-    public void EnterOperator(CalculatorOperation operator) {
+    public void EnterOperation(CalculatorOperation operator) {
         Type(operator.getSymbol());
     }
 

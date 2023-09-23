@@ -133,31 +133,31 @@ public class Calculator extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        CalculatorButton button = CalculatorButton.fromActionEvent(e);
-        if (button.RepresentsOperator()) {
-            if (expression.LastCharacterIsNotClosedBracket())
+        CalculatorButton buttonPressed = CalculatorButton.fromActionEvent(e);
+        if (buttonPressed.WasOperation()) {
+            if (expression.LastTermWasNotClosedBracket())
                 expression.EnterNumber(displayBuffer.Pop());
-            expression.EnterOperator(button.Operation());
-        } else if (button.RepresentsNumber()) {
-            if (expression.LastCharacterIsEquals())
+            expression.EnterOperation(buttonPressed.Operation());
+        } else if (buttonPressed.WasANumber()) {
+            if (expression.LastCharacterWasEquals())
                 displayBuffer.Clear();
-            displayBuffer.Append(button.Number());
-        } else if (button.RepresentsDecimal()) {
+            displayBuffer.Append(buttonPressed.Number());
+        } else if (buttonPressed.WasDecimalPoint()) {
             displayBuffer.Append(".");
-        } else if (button.RepresentsClear()) {
+        } else if (buttonPressed.WasClear()) {
             displayBuffer.Clear();
             expression.Clear();
-        } else if (button.RepresentsDelete()) {
+        } else if (buttonPressed.WasDelete()) {
             displayBuffer.Clear();
-        } else if (button.RepresentsOpenBracket()) {
-            expression.EnterOperator(button.Operation());
-        } else if (button.RepresentsCloseBracket()) {
+        } else if (buttonPressed.WasOpenBracket()) {
+            expression.EnterOperation(buttonPressed.Operation());
+        } else if (buttonPressed.WasClosedBracket()) {
             expression.EnterNumber(displayBuffer.Pop());
-            expression.EnterOperator(button.Operation());
-        } else if (button.RepresentsEquals()) {
-            if (expression.LastCharacterIsNotClosedBracket())
+            expression.EnterOperation(buttonPressed.Operation());
+        } else if (buttonPressed.WasEquals()) {
+            if (expression.LastTermWasNotClosedBracket())
                 expression.EnterNumber(displayBuffer.Pop());
-            expression.EnterOperator(button.Operation());
+            expression.EnterOperation(buttonPressed.Operation());
             displayBuffer.Clear();
             displayBuffer.Push(expression.Evaluate());
         }

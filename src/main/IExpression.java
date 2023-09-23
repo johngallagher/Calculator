@@ -23,15 +23,15 @@ public interface IExpression {
 
     void EnterNumber(String value);
 
-    void EnterOperator(CalculatorOperation operator);
+    void EnterOperation(CalculatorOperation operator);
 
     void Clear();
 
-    boolean LastCharacterIsClosedBracket();
+    boolean LastTermWasClosedBracket();
 
-    boolean LastCharacterIsNotClosedBracket();
+    boolean LastTermWasNotClosedBracket();
 
-    boolean LastCharacterIsEquals();
+    boolean LastCharacterWasEquals();
 
     boolean LastCharacterIsNotEquals();
 }

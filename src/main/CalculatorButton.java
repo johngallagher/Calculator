@@ -52,7 +52,7 @@ public class CalculatorButton {
         }
     }
 
-    public boolean RepresentsOperator() {
+    public boolean WasOperation() {
         return this.operation == CalculatorOperation.Add || this.operation == CalculatorOperation.Subtract || this.operation == CalculatorOperation.Multiply || this.operation == CalculatorOperation.Divide;
     }
 
@@ -60,7 +60,7 @@ public class CalculatorButton {
         return this.operation;
     }
 
-    public boolean RepresentsNumber() {
+    public boolean WasANumber() {
         return this.operation == CalculatorOperation.Number;
     }
 
@@ -68,27 +68,27 @@ public class CalculatorButton {
         return this.buttonText;
     }
 
-    public boolean RepresentsDecimal() {
+    public boolean WasDecimalPoint() {
         return this.operation == CalculatorOperation.Decimal;
     }
 
-    public boolean RepresentsClear() {
+    public boolean WasClear() {
         return this.operation == CalculatorOperation.Clear;
     }
 
-    public boolean RepresentsDelete() {
+    public boolean WasDelete() {
         return this.operation == CalculatorOperation.Delete;
     }
 
-    public boolean RepresentsEquals() {
+    public boolean WasEquals() {
         return this.operation == CalculatorOperation.Equals;
     }
 
-    public boolean RepresentsCloseBracket() {
+    public boolean WasClosedBracket() {
         return this.operation == CalculatorOperation.CloseBracket;
     }
 
-    public boolean RepresentsOpenBracket() {
+    public boolean WasOpenBracket() {
         return this.operation == CalculatorOperation.OpenBracket;
     }
 }

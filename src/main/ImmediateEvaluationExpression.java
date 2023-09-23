@@ -83,7 +83,7 @@ public class ImmediateEvaluationExpression implements IExpression {
     }
 
     @Override
-    public void EnterOperator(CalculatorOperation operator) {
+    public void EnterOperation(CalculatorOperation operator) {
 
     }
 
@@ -93,17 +93,17 @@ public class ImmediateEvaluationExpression implements IExpression {
     }
 
     @Override
-    public boolean LastCharacterIsClosedBracket() {
+    public boolean LastTermWasClosedBracket() {
         return false;
     }
 
     @Override
-    public boolean LastCharacterIsNotClosedBracket() {
+    public boolean LastTermWasNotClosedBracket() {
         return false;
     }
 
     @Override
-    public boolean LastCharacterIsEquals() {
+    public boolean LastCharacterWasEquals() {
         return false;
     }
 
