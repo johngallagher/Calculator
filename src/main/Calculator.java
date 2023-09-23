@@ -134,15 +134,13 @@ public class Calculator extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         CalculatorButton button = CalculatorButton.fromActionEvent(e);
-        if (button.RepresentsOperator() && expression.LastCharacterIsClosedBracket()) {
+        if (button.RepresentsOperator()) {
+            if (expression.LastCharacterIsNotClosedBracket())
+                expression.EnterNumber(displayBuffer.Pop());
             expression.EnterOperator(button.Operation());
-        } else if (button.RepresentsOperator() && expression.LastCharacterIsNotClosedBracket()) {
-            expression.EnterNumber(displayBuffer.Pop());
-            expression.EnterOperator(button.Operation());
-        } else if (button.RepresentsNumber() && expression.LastCharacterIsEquals()) {
-            displayBuffer.Clear();
-            displayBuffer.Append(button.Number());
-        } else if (button.RepresentsNumber() && expression.LastCharacterIsNotEquals()) {
+        } else if (button.RepresentsNumber()) {
+            if (expression.LastCharacterIsEquals())
+                displayBuffer.Clear();
             displayBuffer.Append(button.Number());
         } else if (button.RepresentsDecimal()) {
             displayBuffer.Append(".");
@@ -156,12 +154,9 @@ public class Calculator extends JFrame implements ActionListener {
         } else if (button.RepresentsCloseBracket()) {
             expression.EnterNumber(displayBuffer.Pop());
             expression.EnterOperator(button.Operation());
-        } else if (button.RepresentsEquals() && expression.LastCharacterIsNotClosedBracket()) {
-            expression.EnterNumber(displayBuffer.Pop());
-            expression.EnterOperator(button.Operation());
-            displayBuffer.Clear();
-            displayBuffer.Push(expression.Evaluate());
-        } else if (button.RepresentsEquals() && expression.LastCharacterIsClosedBracket()) {
+        } else if (button.RepresentsEquals()) {
+            if (expression.LastCharacterIsNotClosedBracket())
+                expression.EnterNumber(displayBuffer.Pop());
             expression.EnterOperator(button.Operation());
             displayBuffer.Clear();
             displayBuffer.Push(expression.Evaluate());
