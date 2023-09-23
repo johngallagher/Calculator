@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ffdb8472-d941-4ceb-b292-7309d4053c75" name="Changes" comment="test(fail): two tests failing">
+    <list default="true" id="ffdb8472-d941-4ceb-b292-7309d4053c75" name="Changes" comment="refactor: clear is a better name">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Calculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Calculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/CalculatorButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/CalculatorButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/CalculatorOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/CalculatorOperation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/IExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/IExpression.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/ImmediateEvaluationExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ImmediateEvaluationExpression.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/ReversePolishNotationExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ReversePolishNotationExpression.java" afterDir="false" />
@@ -70,7 +68,7 @@
       <recent name="test" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.Tests">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main.Main" />
       <module name="Calculator" />
@@ -162,11 +160,11 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CalculatorTest.testBracketsWork" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.CalculatorTest.testPressingEqualsAfterACalculationClears" />
+        <item itemvalue="JUnit.CalculatorTest.testBracketsWork" />
         <item itemvalue="JUnit.CalculatorTest.testAddThreeAndTwo" />
         <item itemvalue="JUnit.CalculatorTest.testThreeNumbersWithMultiplyAndAdd" />
-        <item itemvalue="JUnit.CalculatorTest.testPressingEqualsAfterACalculationClears" />
       </list>
     </recent_temporary>
   </component>
@@ -256,7 +254,21 @@
       <option name="project" value="LOCAL" />
       <updated>1695493591769</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="fix: brackets work">
+      <created>1695495396919</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1695495396919</updated>
+    </task>
+    <task id="LOCAL-00013" summary="refactor: clear is a better name">
+      <created>1695495509271</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1695495509271</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -284,7 +296,9 @@
     <MESSAGE value="test: extra coverage of brackets" />
     <MESSAGE value="wip: code we wish we had" />
     <MESSAGE value="test(fail): two tests failing" />
-    <option name="LAST_COMMIT_MESSAGE" value="test(fail): two tests failing" />
+    <MESSAGE value="fix: brackets work" />
+    <MESSAGE value="refactor: clear is a better name" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: clear is a better name" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -312,6 +326,11 @@
           <url>file://$PROJECT_DIR$/src/test/CalculatorTest.java</url>
           <line>85</line>
           <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/Calculator.java</url>
+          <line>142</line>
+          <option name="timeStamp" value="29" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -26,6 +26,8 @@ public class ReversePolishNotation {
                 } else if (s.equals("^")) {
                     stack.push(Math.pow(second, first));
                 }
+            } else if (s == "=") {
+                // Do nothing
             } else {
                 throw new IllegalArgumentException("Invalid input " + s + " in expression");
             }

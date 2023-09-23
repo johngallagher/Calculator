@@ -139,7 +139,10 @@ public class Calculator extends JFrame implements ActionListener {
         } else if (button.RepresentsOperator() && expression.LastCharacterIsNotClosedBracket()) {
             expression.EnterNumber(displayBuffer.Pop());
             expression.EnterOperator(button.Operation());
-        } else if (button.RepresentsNumber()) {
+        } else if (button.RepresentsNumber() && expression.LastCharacterIsEquals()) {
+            displayBuffer.Clear();
+            displayBuffer.Append(button.Number());
+        } else if (button.RepresentsNumber() && expression.LastCharacterIsNotEquals()) {
             displayBuffer.Append(button.Number());
         } else if (button.RepresentsDecimal()) {
             displayBuffer.Append(".");
@@ -155,6 +158,7 @@ public class Calculator extends JFrame implements ActionListener {
             expression.EnterOperator(button.Operation());
         } else if (button.RepresentsEquals()) {
             expression.EnterNumber(displayBuffer.Pop());
+            expression.EnterOperator(button.Operation());
             displayBuffer.Clear();
             displayBuffer.Push(expression.Evaluate());
         }

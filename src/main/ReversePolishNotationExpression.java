@@ -78,6 +78,21 @@ public class ReversePolishNotationExpression implements IExpression {
     }
 
     @Override
+    public boolean LastCharacterIsEquals() {
+        if (characters.isEmpty())
+            return false;
+        else if (characters.get(characters.size() - 1) == "=")
+            return true;
+        else
+            return false;
+    }
+
+    @Override
+    public boolean LastCharacterIsNotEquals() {
+        return !LastCharacterIsEquals();
+    }
+
+    @Override
     public void Type(String s) {
         characters.add(s);
         if (letterOrDigit(s))

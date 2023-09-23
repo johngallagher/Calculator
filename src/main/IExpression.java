@@ -30,4 +30,8 @@ public interface IExpression {
     boolean LastCharacterIsClosedBracket();
 
     boolean LastCharacterIsNotClosedBracket();
+
+    boolean LastCharacterIsEquals();
+
+    boolean LastCharacterIsNotEquals();
 }

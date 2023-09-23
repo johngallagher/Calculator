@@ -101,4 +101,14 @@ public class ImmediateEvaluationExpression implements IExpression {
     public boolean LastCharacterIsNotClosedBracket() {
         return false;
     }
+
+    @Override
+    public boolean LastCharacterIsEquals() {
+        return false;
+    }
+
+    @Override
+    public boolean LastCharacterIsNotEquals() {
+        return false;
+    }
 }
