@@ -9,6 +9,8 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JPanel;
 
+import static main.CalculatorOperation.Equals;
+
 public class Calculator extends JFrame implements ActionListener {
     private JButton delBtn, clearBtn;
     public JButton NumberBtn[];
@@ -147,22 +149,13 @@ public class Calculator extends JFrame implements ActionListener {
             }
             case Delete -> displayBuffer.Clear();
             case OpenBracket -> expression.EnterOperation(buttonPressed.Operation());
-            case CloseBracket -> {
-                expression.EnterNumber(displayBuffer.Pop());
-                expression.EnterOperation(buttonPressed.Operation());
-            }
-            case Multiply, Add, Subtract, Divide -> {
-                if (expression.LastTermWasNotClosedBracket())
-                    expression.EnterNumber(displayBuffer.Pop());
-                expression.EnterOperation(buttonPressed.Operation());
-            }
-            case Equals -> {
-                if (expression.LastTermWasNotClosedBracket())
-                    expression.EnterNumber(displayBuffer.Pop());
-                expression.EnterOperation(buttonPressed.Operation());
+            case CloseBracket, Multiply, Add, Subtract, Divide, Equals -> {
+                expression.EnterNumberAndOperation(displayBuffer.Number(), buttonPressed.Operation());
                 displayBuffer.Clear();
-                displayBuffer.Push(expression.Evaluate());
+                if (buttonPressed.Type() == Equals)
+                    displayBuffer.Push(expression.Evaluate());
             }
         }
     }
+
 }

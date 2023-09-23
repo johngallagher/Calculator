@@ -34,4 +34,10 @@ public interface IExpression {
     boolean LastCharacterWasEquals();
 
     boolean LastCharacterIsNotEquals();
+
+    default void EnterNumberAndOperation(String number, CalculatorOperation operation) {
+        if (LastTermWasNotClosedBracket())
+            EnterNumber(number);
+        EnterOperation(operation);
+    }
 }

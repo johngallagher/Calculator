@@ -26,4 +26,8 @@ public class DisplayBuffer {
     public void Push(String value) {
         this.text.setText(value);
     }
+
+    public String Number() {
+        return this.text.getText();
+    }
 }
