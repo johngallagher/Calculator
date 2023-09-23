@@ -6,6 +6,7 @@ import java.lang.Character;
 
 public class ReversePolishNotationExpression implements IExpression {
 
+    private final ArrayList<String> characters;
     private ArrayList<String> output;
     private Stack<String> stack;
 
@@ -44,6 +45,7 @@ public class ReversePolishNotationExpression implements IExpression {
     public ReversePolishNotationExpression() {
         output = new ArrayList<>();
         stack = new Stack<>();
+        characters = new ArrayList<>();
     }
 
     // Method converts given infixto postfix expression
@@ -61,18 +63,23 @@ public class ReversePolishNotationExpression implements IExpression {
     }
 
 
-    private boolean LastCharacterIsClosedBracket() {
-        if (output.isEmpty())
+    public boolean LastCharacterIsClosedBracket() {
+        if (characters.isEmpty())
             return false;
-
-        if (output.get(output.size() - 1) == ")")
+        else if (characters.get(characters.size() - 1) == ")")
             return true;
         else
             return false;
     }
 
     @Override
+    public boolean LastCharacterIsNotClosedBracket() {
+        return !LastCharacterIsClosedBracket();
+    }
+
+    @Override
     public void Type(String s) {
+        characters.add(s);
         if (letterOrDigit(s))
             output.add(s);
 
@@ -177,5 +184,6 @@ public class ReversePolishNotationExpression implements IExpression {
     public void Clear() {
         Reset();
     }
+
 }
 

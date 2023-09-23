@@ -26,4 +26,8 @@ public interface IExpression {
     void EnterOperator(CalculatorOperation operator);
 
     void Clear();
+
+    boolean LastCharacterIsClosedBracket();
+
+    boolean LastCharacterIsNotClosedBracket();
 }

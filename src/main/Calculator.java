@@ -134,7 +134,9 @@ public class Calculator extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         CalculatorButton button = CalculatorButton.fromActionEvent(e);
-        if (button.RepresentsOperator()) {
+        if (button.RepresentsOperator() && expression.LastCharacterIsClosedBracket()) {
+            expression.EnterOperator(button.Operation());
+        } else if (button.RepresentsOperator() && expression.LastCharacterIsNotClosedBracket()) {
             expression.EnterNumber(displayBuffer.Pop());
             expression.EnterOperator(button.Operation());
         } else if (button.RepresentsNumber()) {
@@ -146,6 +148,11 @@ public class Calculator extends JFrame implements ActionListener {
             expression.Clear();
         } else if (button.RepresentsDelete()) {
             displayBuffer.Pop();
+        } else if (button.RepresentsOpenBracket()) {
+            expression.EnterOperator(button.Operation());
+        } else if (button.RepresentsCloseBracket()) {
+            expression.EnterNumber(displayBuffer.Pop());
+            expression.EnterOperator(button.Operation());
         } else if (button.RepresentsEquals()) {
             expression.EnterNumber(displayBuffer.Pop());
             displayBuffer.Clear();

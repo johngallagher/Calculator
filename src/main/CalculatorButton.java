@@ -26,12 +26,16 @@ public class CalculatorButton {
                 return new CalculatorButton(CalculatorOperation.Divide, buttonText);
             case "=":
                 return new CalculatorButton(CalculatorOperation.Equals, buttonText);
-            case "C":
+            case "CLR":
                 return new CalculatorButton(CalculatorOperation.Clear, buttonText);
-            case "DEL":
+            case "CE":
                 return new CalculatorButton(CalculatorOperation.Delete, buttonText);
             case ".":
                 return new CalculatorButton(CalculatorOperation.Decimal, buttonText);
+            case "(":
+                return new CalculatorButton(CalculatorOperation.OpenBracket, buttonText);
+            case ")":
+                return new CalculatorButton(CalculatorOperation.CloseBracket, buttonText);
             case "0":
             case "1":
             case "2":
@@ -78,5 +82,13 @@ public class CalculatorButton {
 
     public boolean RepresentsEquals() {
         return this.operation == CalculatorOperation.Equals;
+    }
+
+    public boolean RepresentsCloseBracket() {
+        return this.operation == CalculatorOperation.CloseBracket;
+    }
+
+    public boolean RepresentsOpenBracket() {
+        return this.operation == CalculatorOperation.OpenBracket;
     }
 }

@@ -91,4 +91,14 @@ public class ImmediateEvaluationExpression implements IExpression {
     public void Clear() {
 
     }
+
+    @Override
+    public boolean LastCharacterIsClosedBracket() {
+        return false;
+    }
+
+    @Override
+    public boolean LastCharacterIsNotClosedBracket() {
+        return false;
+    }
 }

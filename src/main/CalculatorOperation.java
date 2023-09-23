@@ -6,7 +6,7 @@ public enum CalculatorOperation {
     Multiply,
     Divide,
     Equals,
-    Clear, Delete, Decimal, Number, None;
+    Clear, Delete, Decimal, Number, None, CloseBracket, OpenBracket;
 
     public String getSymbol() {
         switch (this) {
@@ -21,13 +21,17 @@ public enum CalculatorOperation {
             case Equals:
                 return "=";
             case Clear:
-                return "C";
+                return "CLR";
             case Delete:
-                return "DEL";
+                return "CE";
             case Decimal:
                 return ".";
             case Number:
                 return "0";
+            case OpenBracket:
+                return "(";
+            case CloseBracket:
+                return ")";
             default:
                 return "";
         }
