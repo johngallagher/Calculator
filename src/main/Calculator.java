@@ -165,6 +165,7 @@ public class Calculator extends JFrame implements ActionListener {
             if (!text.getText().isEmpty()) {
                 expression.TypeEquals(text.getText());
                 text.setText(expression.Evaluate());
+                x = 1;
             }
         }
 
