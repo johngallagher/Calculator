@@ -95,11 +95,12 @@ public class Calculator extends JFrame implements ActionListener {
             NumberBtn[i].addActionListener(this);
             NumberBtn[i].setForeground(Color.black);
         }
-
-        panel.add(NumberBtn[7]);
+        // Start here ...
+        // Objective - add a SIN button
+        panel.add(CreateNumberButton(7));
         panel.add(NumberBtn[8]);
         panel.add(NumberBtn[9]);
-        panel.add(functionBtn[0]);
+        panel.add(CreateFunctionButton("+"));
 
         panel.add(NumberBtn[6]);
         panel.add(NumberBtn[5]);
@@ -116,7 +117,8 @@ public class Calculator extends JFrame implements ActionListener {
         panel.add(functionBtn[4]);
         panel.add(functionBtn[3]);
         panel.add(functionBtn[8]);
-        panel.add(functionBtn[9]);
+        panel.add(CreateFunctionButton(")"));
+        panel.add(CreateFunctionButton("SIN"));
 
         this.add(functionBtn[6]);
         this.add(functionBtn[5]);
@@ -127,6 +129,30 @@ public class Calculator extends JFrame implements ActionListener {
 
         expression = new ReversePolishNotationExpression();
         displayBuffer = new DisplayBuffer(text);
+    }
+
+    private JButton CreateNumberButton(int i) {
+        JButton numberButton = new JButton(String.valueOf(i));
+        numberButton.setFocusable(false);
+        numberButton.setVerticalTextPosition(JButton.CENTER);
+        numberButton.setHorizontalTextPosition(JButton.CENTER);
+        numberButton.setFont(new Font("Orbitron", Font.PLAIN, 20));
+        numberButton.setSize(new Dimension(10, 10));
+        numberButton.addActionListener(this);
+        numberButton.setForeground(Color.black);
+        return numberButton;
+    }
+
+    private JButton CreateFunctionButton(String s) {
+        JButton functionButton = new JButton(s);
+        functionButton.setFocusable(false);
+        functionButton.setVerticalTextPosition(JButton.CENTER);
+        functionButton.setHorizontalTextPosition(JButton.CENTER);
+        functionButton.setFont(new Font("Orbitron", Font.PLAIN, 20));
+        functionButton.setSize(new Dimension(100, 30));
+        functionButton.addActionListener(this);
+        functionButton.setForeground(Color.black);
+        return functionButton;
     }
 
     public String valueText() {
