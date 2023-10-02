@@ -3,11 +3,15 @@ package main;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Arrays;
 
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JPanel;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import static main.CalculatorOperation.Equals;
 
@@ -99,27 +103,18 @@ public class Calculator extends JFrame implements ActionListener {
         // Start here
         // Objective? Add SIN
         // Use the four rules of simple design to refactor first
-        keypad.add(CreateNumberButton(7));
-        keypad.add(CreateNumberButton(8));
-        keypad.add(CreateNumberButton(9));
-        keypad.add(CreateFunctionButton("+"));
-
-        keypad.add(CreateNumberButton(6));
-        keypad.add(CreateNumberButton(5));
-        keypad.add(CreateNumberButton(4));
-        keypad.add(CreateFunctionButton("-"));
-
-        keypad.add(CreateNumberButton(3));
-        keypad.add(CreateNumberButton(2));
-        keypad.add(CreateNumberButton(1));
-        keypad.add(CreateFunctionButton("*"));
-
-        keypad.add(CreateFunctionButton("."));
-        keypad.add(CreateNumberButton(0));
-        keypad.add(CreateFunctionButton("="));
-        keypad.add(CreateFunctionButton("/"));
-        keypad.add(CreateFunctionButton("("));
-        keypad.add(CreateFunctionButton(")"));
+        List<List<String>> rows = Arrays.asList(
+                Arrays.asList("7", "8", "9", "+"),
+                Arrays.asList("6", "5", "4", "-"),
+                Arrays.asList("3", "2", "1", "*"),
+                Arrays.asList(".", "0", "=", "/"),
+                Arrays.asList("(", ")", "SIN")
+        );
+        for (List<String> row : rows) {
+            for (String cell : row) {
+                keypad.add(ButtonFromCell(cell));
+            }
+        }
 
         this.add(functionBtn[6]);
         this.add(functionBtn[5]);
@@ -130,6 +125,14 @@ public class Calculator extends JFrame implements ActionListener {
 
         expression = new ReversePolishNotationExpression();
         displayBuffer = new DisplayBuffer(text);
+    }
+
+    private JButton ButtonFromCell(String cell) {
+        if (cell.matches("\\d")) {
+            return CreateNumberButton(Integer.valueOf(cell));
+        } else {
+            return CreateFunctionButton(cell);
+        }
     }
 
     private JButton CreateFunctionButton(String text) {
