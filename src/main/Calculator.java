@@ -1,22 +1,16 @@
 package main;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Arrays;
-
-import javax.swing.JFrame;
-import javax.swing.JButton;
-import javax.swing.JTextField;
-import javax.swing.JPanel;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import static main.CalculatorOperation.Equals;
 
 public class Calculator extends JFrame implements ActionListener {
-    private JButton delBtn, clearBtn;
+    private JButton deleteButton, clearButton;
     public JButton NumberButtons[];
     public JButton functionBtn[];
     public JButton Add_btn, Sub_btn, Mul_btn, Div_btn, equalBtn, decBtn, openBracket_btn, closeBracket_btn;
@@ -49,11 +43,11 @@ public class Calculator extends JFrame implements ActionListener {
         keypad.setSize(new Dimension(250, 250));
         keypad.setLocation(new Point(20, 70));
 
-        clearBtn = new JButton("CE");
-        clearBtn.setLocation(new Point(20, 330));
+        clearButton = new JButton("CE");
+        clearButton.setLocation(new Point(20, 330));
 
-        delBtn = new JButton("CLR");
-        delBtn.setLocation(new Point(170, 330));
+        deleteButton = new JButton("CLR");
+        deleteButton.setLocation(new Point(170, 330));
 
         // Start here
         // Objective? Add SIN
@@ -71,8 +65,8 @@ public class Calculator extends JFrame implements ActionListener {
             }
         }
 
-        this.add(clearBtn);
-        this.add(delBtn);
+        this.add(clearButton);
+        this.add(deleteButton);
         this.add(text);
         this.add(keypad);
         this.setVisible(true);
