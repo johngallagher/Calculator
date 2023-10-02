@@ -16,7 +16,7 @@ public class Calculator extends JFrame implements ActionListener {
     public JButton NumberBtn[];
     public JButton functionBtn[];
     public JButton Add_btn, Sub_btn, Mul_btn, Div_btn, equalBtn, decBtn, openBracket_btn, closeBracket_btn;
-    private JPanel panel;
+    private JPanel keypad;
     private JTextField text;
     private int x = 0;
     private IExpression expression;
@@ -40,10 +40,10 @@ public class Calculator extends JFrame implements ActionListener {
         text.setForeground(Color.black);
         text.setHorizontalAlignment(JTextField.RIGHT);
 
-        panel = new JPanel();
-        panel.setLayout(new GridLayout(5, 4));
-        panel.setSize(new Dimension(250, 250));
-        panel.setLocation(new Point(20, 70));
+        keypad = new JPanel();
+        keypad.setLayout(new GridLayout(5, 4));
+        keypad.setSize(new Dimension(250, 250));
+        keypad.setLocation(new Point(20, 70));
 
         Add_btn = new JButton("+");
         Sub_btn = new JButton("-");
@@ -97,33 +97,32 @@ public class Calculator extends JFrame implements ActionListener {
         }
         // Start here ...
         // Objective - add a SIN button
-        panel.add(CreateNumberButton(7));
-        panel.add(NumberBtn[8]);
-        panel.add(NumberBtn[9]);
-        panel.add(CreateFunctionButton("+"));
+        keypad.add(CreateNumberButton(7));
+        keypad.add(CreateNumberButton(8));
+        keypad.add(CreateNumberButton(9));
+        keypad.add(CreateFunctionButton("+"));
 
-        panel.add(NumberBtn[6]);
-        panel.add(NumberBtn[5]);
-        panel.add(NumberBtn[4]);
-        panel.add(functionBtn[1]);
+        keypad.add(CreateNumberButton(6));
+        keypad.add(CreateNumberButton(5));
+        keypad.add(CreateNumberButton(4));
+        keypad.add(CreateFunctionButton("-"));
 
-        panel.add(NumberBtn[3]);
-        panel.add(NumberBtn[2]);
-        panel.add(NumberBtn[1]);
-        panel.add(functionBtn[2]);
+        keypad.add(CreateNumberButton(3));
+        keypad.add(CreateNumberButton(2));
+        keypad.add(CreateNumberButton(1));
+        keypad.add(CreateFunctionButton("*"));
 
-        panel.add(functionBtn[7]);
-        panel.add(NumberBtn[0]);
-        panel.add(functionBtn[4]);
-        panel.add(functionBtn[3]);
-        panel.add(functionBtn[8]);
-        panel.add(CreateFunctionButton(")"));
-        panel.add(CreateFunctionButton("SIN"));
+        keypad.add(CreateFunctionButton("."));
+        keypad.add(CreateNumberButton(0));
+        keypad.add(CreateFunctionButton("="));
+        keypad.add(CreateFunctionButton("/"));
+        keypad.add(CreateFunctionButton("("));
+        keypad.add(CreateFunctionButton(")"));
 
         this.add(functionBtn[6]);
         this.add(functionBtn[5]);
         this.add(text);
-        this.add(panel);
+        this.add(keypad);
         this.setVisible(true);
         this.setLocationRelativeTo(null);
 
@@ -132,28 +131,28 @@ public class Calculator extends JFrame implements ActionListener {
     }
 
     private JButton CreateNumberButton(int i) {
-        JButton numberButton = new JButton(String.valueOf(i));
-        numberButton.setFocusable(false);
-        numberButton.setVerticalTextPosition(JButton.CENTER);
-        numberButton.setHorizontalTextPosition(JButton.CENTER);
-        numberButton.setFont(new Font("Orbitron", Font.PLAIN, 20));
+        JButton numberButton = CreateButton(String.valueOf(i));
         numberButton.setSize(new Dimension(10, 10));
-        numberButton.addActionListener(this);
-        numberButton.setForeground(Color.black);
         return numberButton;
     }
 
     private JButton CreateFunctionButton(String s) {
+        JButton functionButton = CreateButton(s);
+        functionButton.setSize(new Dimension(100, 30));
+        return functionButton;
+    }
+
+    private JButton CreateButton(String s) {
         JButton functionButton = new JButton(s);
         functionButton.setFocusable(false);
         functionButton.setVerticalTextPosition(JButton.CENTER);
         functionButton.setHorizontalTextPosition(JButton.CENTER);
         functionButton.setFont(new Font("Orbitron", Font.PLAIN, 20));
-        functionButton.setSize(new Dimension(100, 30));
         functionButton.addActionListener(this);
         functionButton.setForeground(Color.black);
         return functionButton;
     }
+
 
     public String valueText() {
         return text.getText();
