@@ -96,6 +96,9 @@ public class Calculator extends JFrame implements ActionListener {
             NumberBtn[i].setForeground(Color.black);
         }
 
+        // Start here
+        // Objective? Add SIN
+        // Use the four rules of simple design to refactor first
         panel.add(NumberBtn[7]);
         panel.add(NumberBtn[8]);
         panel.add(NumberBtn[9]);
