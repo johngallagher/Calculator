@@ -57,7 +57,7 @@ public class Calculator extends JFrame implements ActionListener {
                 Arrays.asList("6", "5", "4", "-"),
                 Arrays.asList("3", "2", "1", "*"),
                 Arrays.asList(".", "0", "=", "/"),
-                Arrays.asList("(", ")", "SIN")
+                Arrays.asList("(", ")")
         );
         for (List<String> row : rows) {
             for (String cell : row) {
@@ -78,34 +78,33 @@ public class Calculator extends JFrame implements ActionListener {
 
     private JButton ButtonFromCell(String cell) {
         if (cell.matches("\\d")) {
-            return CreateNumberButton(Integer.valueOf(cell));
+            return CreateNumberButton(cell);
         } else {
             return CreateFunctionButton(cell);
         }
     }
 
     private JButton CreateFunctionButton(String text) {
-        JButton button = new JButton(text);
-        button.setFocusable(false);
-        button.setVerticalTextPosition(JButton.CENTER);
-        button.setHorizontalTextPosition(JButton.CENTER);
-        button.setFont(new Font("Orbitron", Font.PLAIN, 20));
-        button.setSize(new Dimension(100, 30));
-        button.addActionListener(this);
-        button.setForeground(Color.black);
-        return button;
+        JButton functionButton = CreateButton(text);
+        functionButton.setSize(new Dimension(100, 30));
+        return functionButton;
     }
 
-    private JButton CreateNumberButton(int i) {
-        JButton numberButton = new JButton(String.valueOf(i));
-        numberButton.setFocusable(false);
-        numberButton.setFont(new Font("Orbitron", Font.PLAIN, 20));
+    private JButton CreateNumberButton(String number) {
+        JButton numberButton = CreateButton(number);
         numberButton.setSize(new Dimension(10, 10));
-        numberButton.setVerticalTextPosition(JButton.CENTER);
-        numberButton.setHorizontalTextPosition(JButton.CENTER);
-        numberButton.addActionListener(this);
-        numberButton.setForeground(Color.black);
         return numberButton;
+    }
+
+    private JButton CreateButton(String text) {
+        JButton functionButton = new JButton(text);
+        functionButton.setFocusable(false);
+        functionButton.setFont(new Font("Arial", Font.BOLD, 20));
+        functionButton.setVerticalTextPosition(JButton.CENTER);
+        functionButton.setHorizontalTextPosition(JButton.CENTER);
+        functionButton.addActionListener(this);
+        functionButton.setForeground(Color.black);
+        return functionButton;
     }
 
     public String valueText() {
