@@ -49,56 +49,11 @@ public class Calculator extends JFrame implements ActionListener {
         keypad.setSize(new Dimension(250, 250));
         keypad.setLocation(new Point(20, 70));
 
-        Add_btn = new JButton("+");
-        Sub_btn = new JButton("-");
-        Mul_btn = new JButton("*");
-        Div_btn = new JButton("/");
-        equalBtn = new JButton("=");
-        decBtn = new JButton(".");
-        openBracket_btn = new JButton("(");
-        closeBracket_btn = new JButton(")");
-
         clearBtn = new JButton("CE");
         clearBtn.setLocation(new Point(20, 330));
 
         delBtn = new JButton("CLR");
         delBtn.setLocation(new Point(170, 330));
-
-        functionBtn = new JButton[10];
-
-        functionBtn[0] = Add_btn;
-        functionBtn[1] = Sub_btn;
-        functionBtn[2] = Mul_btn;
-        functionBtn[3] = Div_btn;
-        functionBtn[4] = equalBtn;
-        functionBtn[5] = delBtn;
-        functionBtn[6] = clearBtn;
-        functionBtn[7] = decBtn;
-        functionBtn[8] = openBracket_btn;
-        functionBtn[9] = closeBracket_btn;
-
-        for (int i = 0; i < 10; i++) {
-            functionBtn[i].setFocusable(false);
-            functionBtn[i].setVerticalTextPosition(JButton.CENTER);
-            functionBtn[i].setHorizontalTextPosition(JButton.CENTER);
-            functionBtn[i].setFont(new Font("Orbitron", Font.PLAIN, 20));
-            functionBtn[i].setSize(new Dimension(100, 30));
-            functionBtn[i].addActionListener(this);
-            functionBtn[i].setForeground(Color.black);
-        }
-
-        NumberButtons = new JButton[10];
-
-        for (int i = 0; i < 10; i++) {
-            NumberButtons[i] = new JButton(String.valueOf(i));
-            NumberButtons[i].setFocusable(false);
-            NumberButtons[i].setFont(new Font("Orbitron", Font.PLAIN, 20));
-            NumberButtons[i].setSize(new Dimension(10, 10));
-            NumberButtons[i].setVerticalTextPosition(JButton.CENTER);
-            NumberButtons[i].setHorizontalTextPosition(JButton.CENTER);
-            NumberButtons[i].addActionListener(this);
-            NumberButtons[i].setForeground(Color.black);
-        }
 
         // Start here
         // Objective? Add SIN
@@ -116,8 +71,8 @@ public class Calculator extends JFrame implements ActionListener {
             }
         }
 
-        this.add(functionBtn[6]);
-        this.add(functionBtn[5]);
+        this.add(clearBtn);
+        this.add(delBtn);
         this.add(text);
         this.add(keypad);
         this.setVisible(true);
@@ -147,30 +102,6 @@ public class Calculator extends JFrame implements ActionListener {
         return button;
     }
 
-    private JButton CreateMultiplyButton() {
-        JButton button = new JButton("*");
-        button.setFocusable(false);
-        button.setVerticalTextPosition(JButton.CENTER);
-        button.setHorizontalTextPosition(JButton.CENTER);
-        button.setFont(new Font("Orbitron", Font.PLAIN, 20));
-        button.setSize(new Dimension(100, 30));
-        button.addActionListener(this);
-        button.setForeground(Color.black);
-        return button;
-    }
-
-    private JButton CreateSubtractButton() {
-        JButton button = new JButton("-");
-        button.setFocusable(false);
-        button.setVerticalTextPosition(JButton.CENTER);
-        button.setHorizontalTextPosition(JButton.CENTER);
-        button.setFont(new Font("Orbitron", Font.PLAIN, 20));
-        button.setSize(new Dimension(100, 30));
-        button.addActionListener(this);
-        button.setForeground(Color.black);
-        return button;
-    }
-
     private JButton CreateNumberButton(int i) {
         JButton numberButton = new JButton(String.valueOf(i));
         numberButton.setFocusable(false);
@@ -181,18 +112,6 @@ public class Calculator extends JFrame implements ActionListener {
         numberButton.addActionListener(this);
         numberButton.setForeground(Color.black);
         return numberButton;
-    }
-
-    private JButton CreateAddButton() {
-        JButton button = new JButton("+");
-        button.setFocusable(false);
-        button.setVerticalTextPosition(JButton.CENTER);
-        button.setHorizontalTextPosition(JButton.CENTER);
-        button.setFont(new Font("Orbitron", Font.PLAIN, 20));
-        button.setSize(new Dimension(100, 30));
-        button.addActionListener(this);
-        button.setForeground(Color.black);
-        return button;
     }
 
     public String valueText() {
